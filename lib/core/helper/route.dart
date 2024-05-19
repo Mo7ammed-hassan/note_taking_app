@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:note_taking_app/features/on_boarding/presentation/views/walkthough_view.dart';
 import 'package:note_taking_app/features/splash/splash_view.dart';
 
 final GoRouter router = GoRouter(
@@ -21,16 +21,16 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/onBoardingView',
       pageBuilder: (context, state) => CustomTransitionPage(
-        transitionDuration: const Duration(seconds: 1),
+        transitionDuration: const Duration(milliseconds: 1000),
         key: state.pageKey,
-        child: const OnBoardingView(),
+        child: const WalkthoughView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(
               Tween<Offset>(
                 begin: const Offset(1.0, 0.0),
                 end: Offset.zero,
-              ).chain(CurveTween(curve: Curves.easeInOut)),
+              ).chain(CurveTween(curve: Curves.linear)),
             ),
             child: child,
           );

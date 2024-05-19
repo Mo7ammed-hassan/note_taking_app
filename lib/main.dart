@@ -13,14 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Note Taking',
       theme: ThemeData(
-        
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cardBodyColor),
-        useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.scaffoldColor,
+        //useMaterial3: true,
       ),
       home: const SplashView(),
     );
   }
 }
-

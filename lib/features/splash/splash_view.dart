@@ -3,37 +3,72 @@ import 'package:flutter_svg/svg.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _opacityAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    _opacityAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeIn,
+    );
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.splashColor,
       body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 157),
-            // splash image--
-            SvgPicture.asset('assets/images/Black.svg'),
-            const SizedBox(height: 15),
-
-            // splash text--
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Note-Taking ',
-                    style: AppTextStyles.textStyle22Black
-                        .copyWith(color: AppColors.primaryColor),
+        child: AnimatedBuilder(
+          animation: _opacityAnimation,
+          builder: (context, child) => Opacity(
+            opacity: _opacityAnimation.value,
+            child: Column(
+              children: [
+                const SizedBox(height: 160),
+                // splash image--
+                SvgPicture.asset('assets/images/Black.svg'),
+                const SizedBox(height: 15),
+                // splash text--
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Note-Taking ',
+                        style: AppTextStyles.textStyle24Black
+                            .copyWith(color: AppColors.primaryColor),
+                      ),
+                      TextSpan(
+                        text: 'App',
+                        style: AppTextStyles.textStyle24Black,
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                    text: 'App',
-                    style: AppTextStyles.textStyle22Black,
-                  ),
-                ],
-              ),
-            )
-          ],
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

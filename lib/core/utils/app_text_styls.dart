@@ -14,7 +14,7 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w900,
     fontFamily: 'Sectra',
   );
-   static TextStyle textStyle18SemiBold = TextStyle(
+  static TextStyle textStyle18SemiBold = TextStyle(
     fontSize: 18,
     color: AppColors.noteBodyColor,
     fontWeight: FontWeight.w600,
@@ -50,6 +50,12 @@ abstract class AppTextStyles {
     fontSize: 16,
     color: AppColors.splashColor,
     fontWeight: FontWeight.w700,
+    fontFamily: 'Sectra',
+  );
+  static TextStyle textStyle16SemiBold = TextStyle(
+    fontSize: 14,
+    color: AppColors.primaryColor,
+    fontWeight: FontWeight.w600,
     fontFamily: 'Sectra',
   );
   static TextStyle textStyle16Black = TextStyle(

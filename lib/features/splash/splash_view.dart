@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -21,7 +21,7 @@ class _SplashViewState extends State<SplashView>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(seconds: 2),
     );
     _opacityAnimation = CurvedAnimation(
       parent: _animationController,
@@ -30,12 +30,8 @@ class _SplashViewState extends State<SplashView>
     _animationController.forward();
 
     Future.delayed(
-      const Duration(milliseconds: 3000),
-      () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const OnBoardingView(),
-          )),
+      const Duration(seconds: 3),
+      () => GoRouter.of(context).go('/onBoardingView'),
     );
   }
 
@@ -56,7 +52,7 @@ class _SplashViewState extends State<SplashView>
             opacity: _opacityAnimation.value,
             child: Column(
               children: [
-                const SizedBox(height: 160),
+                const SizedBox(height: 170),
                 // -- App Icon--
                 SvgPicture.asset('assets/images/Black.svg'),
                 const SizedBox(height: 15),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
@@ -46,7 +47,9 @@ class WalkthoughView extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  GoRouter.of(context).push('/login');
+                },
                 child: Text(
                   'Log in',
                   style: AppTextStyles.textStyle16Medium.copyWith(

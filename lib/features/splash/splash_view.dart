@@ -32,7 +32,7 @@ class _SplashViewState extends State<SplashView>
 
     Future.delayed(
       const Duration(seconds: 3),
-      () => GoRouter.of(context).go('/onBoardingView'),
+      () => GoRouter.of(context).go('/walkthoughView'),
     );
   }
 

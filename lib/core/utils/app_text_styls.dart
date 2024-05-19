@@ -14,6 +14,12 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w900,
     fontFamily: 'Sectra',
   );
+   static TextStyle textStyle18SemiBold = TextStyle(
+    fontSize: 18,
+    color: AppColors.noteBodyColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Sectra',
+  );
   static TextStyle textStyle17SemiBold = TextStyle(
     fontSize: 17,
     color: AppColors.noteBodyColor,

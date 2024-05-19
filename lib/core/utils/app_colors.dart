@@ -11,4 +11,5 @@ abstract class AppColors{
   static  Color circleBackgroundColor = const Color(0xffE7E7FF);
   static  Color scaffoldColor = const Color(0xffF2F4F5);
   static  Color splashColor = const Color(0xffFFFFFF);
+  
 }

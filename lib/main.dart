@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Note Taking',
       theme: ThemeData(
+        
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cardBodyColor),
         useMaterial3: true,
       ),

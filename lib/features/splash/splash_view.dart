@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
+import 'package:note_taking_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -20,13 +21,22 @@ class _SplashViewState extends State<SplashView>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 2000),
     );
     _opacityAnimation = CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeIn,
     );
     _animationController.forward();
+
+    Future.delayed(
+      const Duration(milliseconds: 3000),
+      () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const OnBoardingView(),
+          )),
+    );
   }
 
   @override
@@ -47,10 +57,10 @@ class _SplashViewState extends State<SplashView>
             child: Column(
               children: [
                 const SizedBox(height: 160),
-                // splash image--
+                // -- App Icon--
                 SvgPicture.asset('assets/images/Black.svg'),
                 const SizedBox(height: 15),
-                // splash text--
+                // --App Title--
                 RichText(
                   text: TextSpan(
                     children: [

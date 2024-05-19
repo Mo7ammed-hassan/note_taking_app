@@ -27,9 +27,9 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
     fontFamily: 'Sectra',
   );
-  static TextStyle textStyle16SemiBold = TextStyle(
+  static TextStyle textStyle16Medium = const TextStyle(
     fontSize: 16,
-    color: AppColors.primaryColor,
+    color: Colors.white,
     fontWeight: FontWeight.w500,
     fontFamily: 'Sectra',
   );

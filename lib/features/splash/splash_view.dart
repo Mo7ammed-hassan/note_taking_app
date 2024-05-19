@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
+import 'package:note_taking_app/core/utils/image_assets.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -54,7 +55,7 @@ class _SplashViewState extends State<SplashView>
               children: [
                 const SizedBox(height: 170),
                 // -- App Icon--
-                SvgPicture.asset('assets/images/Black.svg'),
+                SvgPicture.asset(Assets.imagesBlack),
                 const SizedBox(height: 15),
                 // --App Title--
                 RichText(

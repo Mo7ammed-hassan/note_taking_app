@@ -18,8 +18,8 @@ class Assets {
   static const String imagesCheakednote = "assets/images/cheakednote.svg";
 
   /// Assets for imagesDiary
-  /// assets/images/diary.svg
-  static const String imagesDiary = "assets/images/diary.svg";
+  /// assets/images/diary.png
+  static const String imagesDiary = "assets/images/diary.png";
 
   /// Assets for imagesEyeShow
   /// assets/images/eyeShow.svg

@@ -9,6 +9,7 @@ abstract class AppColors {
   static Color cardBodyColor = const Color(0xff72777A);
   static Color noteBodyColor = const Color(0xff2A2251);
   static Color circleBackgroundColor = const Color(0xffE7E7FF);
-  static Color scaffoldColor = const Color(0xffE7E7FF);
+  static Color scaffoldColor = const Color(0xffF2F4F5);
   static Color splashColor = const Color(0xffFFFFFF);
+  
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
+import 'package:note_taking_app/features/splash/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cardBodyColor),
         useMaterial3: true,
       ),
-      //home: ,
+      home: const SplashView(),
     );
   }
 }

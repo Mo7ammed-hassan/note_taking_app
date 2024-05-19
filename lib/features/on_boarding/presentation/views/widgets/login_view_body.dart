@@ -37,9 +37,14 @@ class LoginViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 28),
 
-          SizedBox(
-            width: 350,
-            child: CustomButtom(onTap: () {}, title: 'Log in'),
+          Center(
+            child: SizedBox(
+              width: double.infinity,
+              child: CustomButtom(
+                onTap: () {},
+                title: 'Log in',
+              ),
+            ),
           ),
 
           const SizedBox(height: 25),

@@ -3,8 +3,9 @@ import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 
 class CustomButtom extends StatelessWidget {
-  const CustomButtom({super.key, required this.onTap});
+  const CustomButtom({super.key, required this.onTap, required this.title});
   final VoidCallback onTap;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,7 +19,7 @@ class CustomButtom extends StatelessWidget {
           ),
         ),
         child: Text(
-          'Create account',
+          title,
           style: AppTextStyles.textStyle16Medium,
           textAlign: TextAlign.center,
         ),

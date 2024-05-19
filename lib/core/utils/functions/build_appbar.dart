@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 
-AppBar buildAppBar(BuildContext context) {
+AppBar buildAppBar(BuildContext context,{required String title}) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -21,7 +21,7 @@ AppBar buildAppBar(BuildContext context) {
           },
           icon: const Icon(Icons.arrow_back_ios_new)),
       title: Text(
-        'Log in',
+        title,
         style: AppTextStyles.textStyle18SemiBold,
       ),
     );

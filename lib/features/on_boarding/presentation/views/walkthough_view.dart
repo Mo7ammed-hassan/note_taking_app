@@ -34,6 +34,7 @@ class WalkthoughView extends StatelessWidget {
           ),
           const SizedBox(height: 33),
           CustomButtom(
+            title: 'Create account',
             onTap: () {},
           ),
           const SizedBox(height: 25),

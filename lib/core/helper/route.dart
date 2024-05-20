@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:note_taking_app/features/on_boarding/presentation/register_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/login_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/walkthough_view.dart';
 import 'package:note_taking_app/features/splash/splash_view.dart';
@@ -41,20 +42,37 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/login',
       pageBuilder: (context, state) => CustomTransitionPage(
-        transitionDuration: const Duration(milliseconds: 300),
+        transitionDuration: const Duration(milliseconds: 500),
         key: state.pageKey,
         child: const LoginView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(
               Tween<Offset>(
-                begin: const Offset(0.0, 1.0),
+                begin: const Offset(1.0, 0.0),
                 end: Offset.zero,
               ).chain(CurveTween(curve: Curves.linear)),
             ),
             child: child,
           );
         },
+      ),
+    ),
+    GoRoute(
+      path: '/register',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(milliseconds: 500),
+        child: const RegisterView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: animation.drive(
+            Tween<Offset>(
+              begin: const Offset(0.0, 1.0),
+              end: Offset.zero,
+            ).chain(CurveTween(curve: Curves.linear)),
+          ),
+          child: child,
+        ),
       ),
     ),
   ],

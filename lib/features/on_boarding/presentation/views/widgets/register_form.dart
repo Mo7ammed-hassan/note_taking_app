@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
-import 'package:note_taking_app/core/utils/widgets/text_form_field.dart';
+import 'package:note_taking_app/core/utils/widgets/custom_text_form_field.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({
@@ -24,13 +24,27 @@ class _RegisterFormState extends State<RegisterForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // --custom textfield--
-          const CustomTextFormField(labelText: 'User name'),
+          const CustomTextFormField(
+            labelText: 'User name',
+            keyboardType: TextInputType.name,
+          ),
           const SizedBox(height: 16),
-          const CustomTextFormField(labelText: 'Email'),
+          const CustomTextFormField(
+            labelText: 'Email',
+            keyboardType: TextInputType.emailAddress,
+          ),
           const SizedBox(height: 16),
-          const CustomTextFormField(labelText: 'Password'),
+          const CustomTextFormField(
+            labelText: 'Password',
+            isObscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+          ),
           const SizedBox(height: 16),
-          const CustomTextFormField(labelText: 'Confirm Password'),
+          const CustomTextFormField(
+            labelText: 'Confirm Password',
+            isObscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+          ),
 
           // Text
           const SizedBox(height: 18),

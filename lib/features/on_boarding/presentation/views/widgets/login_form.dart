@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
-import 'package:note_taking_app/core/utils/widgets/text_form_field.dart';
+import 'package:note_taking_app/core/utils/widgets/custom_text_form_field.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -23,10 +23,16 @@ class _LoginFormState extends State<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // --custom textfield--
-          const CustomTextFormField(labelText: 'Email'),
+          const CustomTextFormField(
+            labelText: 'Email',
+            keyboardType: TextInputType.emailAddress,
+          ),
           const SizedBox(height: 16),
-          const CustomTextFormField(labelText: 'Password'),
-
+          const CustomTextFormField(
+            labelText: 'Password',
+            isObscureText:true, 
+            keyboardType: TextInputType.visiblePassword,
+          ),
           // Text
           const SizedBox(height: 18),
           GestureDetector(

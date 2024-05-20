@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Note Taking',
       theme: ThemeData(
+        fontFamily: 'Inter',
         scaffoldBackgroundColor: AppColors.scaffoldColor,
         //useMaterial3: true,
       ),

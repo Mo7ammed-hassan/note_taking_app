@@ -24,9 +24,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: showPassword,
-      obscuringCharacter: '*',
-      keyboardType: widget.keyboardType ?? TextInputType.text,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Faild is required';
@@ -34,6 +31,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           return null;
         }
       },
+      obscuringCharacter: '*',
+      obscureText: showPassword,
+      keyboardType: widget.keyboardType ?? TextInputType.text,
       cursorColor: AppColors.primaryColor,
       decoration: InputDecoration(
         contentPadding:

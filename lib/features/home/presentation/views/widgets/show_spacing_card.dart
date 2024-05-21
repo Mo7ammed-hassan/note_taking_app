@@ -9,7 +9,8 @@ class ShowSpacingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 358, maxHeight: 141),
       child: AspectRatio(
         aspectRatio: 358 / 141,
         child: Container(

@@ -33,13 +33,17 @@ class Assets {
   /// assets/images/note.svg
   static const String imagesNote = "assets/images/note.svg";
 
+  /// Assets for imagesOsman
+  /// assets/images/osman.jpg
+  static const String imagesOsman = "assets/images/osman.jpg";
+
   /// Assets for imagesOthers
   /// assets/images/others.svg
   static const String imagesOthers = "assets/images/others.svg";
 
-  /// Assets for imagesPersonal
-  /// assets/images/personal.svg
-  static const String imagesPersonal = "assets/images/personal.svg";
+  /// Assets for imagesPerson
+  /// assets/images/person.png
+  static const String imagesPerson = "assets/images/person.png";
 
   /// Assets for imagesPieChart
   /// assets/images/pieChart.svg

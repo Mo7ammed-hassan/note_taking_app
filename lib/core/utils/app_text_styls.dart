@@ -7,6 +7,11 @@ abstract class AppTextStyles {
     color: AppColors.secoundryColor,
     fontWeight: FontWeight.w900,
   );
+  static TextStyle textStyle20Black = const TextStyle(
+    fontSize: 20,
+    color: Color(0xffFFFFFF),
+    fontWeight: FontWeight.w900,
+  );
   static TextStyle textStyle22Black = TextStyle(
     fontSize: 22,
     color: AppColors.mainColor,

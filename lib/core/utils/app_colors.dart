@@ -11,5 +11,22 @@ abstract class AppColors {
   static Color circleBackgroundColor = const Color(0xffE7E7FF);
   static Color scaffoldColor = const Color(0xffF2F4F5);
   static Color splashColor = const Color(0xffFFFFFF);
-  
+
+  static const availiableSpaceGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color(0xffd9d3f5),
+      Color(0xff836CFB),
+    ],
+  );
+
+  static const primaryGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color(0xff836bfb),
+      Color(0xff6e52fe),
+    ],
+  );
 }

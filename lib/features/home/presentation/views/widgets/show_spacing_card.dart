@@ -22,44 +22,49 @@ class ShowSpacingCard extends StatelessWidget {
               buildBoxShadow(),
             ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // image
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: ShapeDecoration(
-                    //color: Colors.transparent.withOpacity(0.1),
-                    gradient: AppColors.availiableSpaceGradient,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(
-                        color: Colors.white.withOpacity(0.3),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // image
+              Flexible(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 68),
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: ShapeDecoration(
+                        //color: Colors.transparent.withOpacity(0.1),
+                        gradient: AppColors.availiableSpaceGradient,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                            color: Colors.white.withOpacity(0.3),
+                          ),
+                        ),
                       ),
+                      child: Image.asset(Assets.imagesPieChart),
                     ),
                   ),
-                  child: Image.asset(Assets.imagesPieChart),
                 ),
-                const SizedBox(width: 25),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // title
-                    Text(
-                      'Available Space',
-                      style: AppTextStyles.textStyle20Black,
-                    ),
-                    Text(
-                      '20 .254 GB of 25 GB Used',
-                      style: AppTextStyles.textStyle12SemiBold
-                          .copyWith(color: Colors.white54),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(width: 25),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // title
+                  Text(
+                    'Available Space',
+                    style: AppTextStyles.textStyle20Black,
+                  ),
+                  Text(
+                    '20 .254 GB of 25 GB Used',
+                    style: AppTextStyles.textStyle12SemiBold
+                        .copyWith(color: Colors.white54),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
@@ -33,8 +34,8 @@ class CustomHomeAppBar extends StatelessWidget {
           children: [
             SvgPicture.asset(Assets.imagesAllert),
             const SizedBox(width: 15),
-            SizedBox(
-              width: 52,
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 52, maxWidth: 52),
               child: AspectRatio(
                 aspectRatio: 1,
                 child: Container(

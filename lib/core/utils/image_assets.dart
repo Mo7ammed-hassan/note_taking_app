@@ -45,6 +45,10 @@ class Assets {
   /// assets/images/person.png
   static const String imagesPerson = "assets/images/person.png";
 
+  /// Assets for imagesPersonal
+  /// assets/images/personal.svg
+  static const String imagesPersonal = "assets/images/personal.svg";
+
   /// Assets for imagesPieChart
   /// assets/images/pieChart.png
   static const String imagesPieChart = "assets/images/pieChart.png";

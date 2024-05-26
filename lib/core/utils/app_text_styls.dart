@@ -50,8 +50,8 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
   static TextStyle textStyle16SemiBold = TextStyle(
-    fontSize: 14,
-    color: AppColors.primaryColor,
+    fontSize: 17,
+    color: AppColors.cardBodyColor,
     fontWeight: FontWeight.w600,
   );
   static TextStyle textStyle16Black = TextStyle(
@@ -87,9 +87,9 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
-  static TextStyle textStyle8Medium = TextStyle(
-    fontSize: 8,
-    color: AppColors.primaryColor,
+  static TextStyle textStyle10Medium = TextStyle(
+    fontSize: 10,
+    color: AppColors.cardBodyColor,
     fontWeight: FontWeight.w500,
   );
   static TextStyle textStyle12Bold = TextStyle(

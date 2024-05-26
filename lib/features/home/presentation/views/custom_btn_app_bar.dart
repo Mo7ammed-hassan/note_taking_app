@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
+import 'package:note_taking_app/core/utils/widgets/custom_container.dart';
 import 'package:note_taking_app/features/home/presentation/views/custom_icon_bottom_app_bar.dart';
 
 class CustomBtnAppBar extends StatefulWidget {
@@ -30,14 +31,8 @@ class _CustomBtnAppBarState extends State<CustomBtnAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 8),
-      decoration: ShapeDecoration(
-        color: const Color(0xffFFFFFF),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
+    return CustomContainer(
+      padding: const EdgeInsets.symmetric(vertical: 21, horizontal: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: iconList

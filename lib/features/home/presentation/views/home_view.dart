@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
         child: const CustomBtnAppBar(),
       ),
     );

@@ -41,15 +41,20 @@ class NoteCardGridView extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 18,
-        mainAxisSpacing: 27,
+        mainAxisSpacing: 30,
       ),
       itemBuilder: (context, index) {
-        return ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 171, maxHeight: 171),
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: NoteCardItem(
-              noteModel: noteList[index],
+        return GestureDetector(
+          onTap: (){
+            // selected index and mdo nav..
+          },
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 171, maxHeight: 171),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: NoteCardItem(
+                noteModel: noteList[index],
+              ),
             ),
           ),
         );

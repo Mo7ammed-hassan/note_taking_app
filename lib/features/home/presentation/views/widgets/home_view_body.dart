@@ -16,9 +16,9 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           // --cusom app bar--
           SliverToBoxAdapter(child: CustomHomeAppBar()),
-          SliverToBoxAdapter(child: SizedBox(height: 30)),
+          SliverToBoxAdapter(child: SizedBox(height: 35)),
           SliverToBoxAdapter(child: ShowSpacingCard()),
-          SliverToBoxAdapter(child: SizedBox(height: 60)),
+          SliverToBoxAdapter(child: SizedBox(height: 65)),
           NoteCardGridView(),
         ],
       ),

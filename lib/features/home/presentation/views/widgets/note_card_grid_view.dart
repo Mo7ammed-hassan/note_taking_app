@@ -44,10 +44,13 @@ class NoteCardGridView extends StatelessWidget {
         mainAxisSpacing: 27,
       ),
       itemBuilder: (context, index) {
-        return AspectRatio(
-          aspectRatio: 171 / 172,
-          child: NoteCardItem(
-            noteModel: noteList[index],
+        return ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 171, maxHeight: 171),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: NoteCardItem(
+              noteModel: noteList[index],
+            ),
           ),
         );
       },

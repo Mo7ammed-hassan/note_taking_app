@@ -32,7 +32,7 @@ class _CustomBtnAppBarState extends State<CustomBtnAppBar> {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      padding: const EdgeInsets.symmetric(vertical: 21, horizontal: 8),
+      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: iconList

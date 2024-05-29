@@ -12,28 +12,42 @@ class NoteCardItem extends StatelessWidget {
   final NoteCardItemModel noteModel;
   @override
   Widget build(BuildContext context) {
-    return CustomContainer(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          NoteCardItemImage(
-            image: noteModel.image,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 171, maxHeight: 171),
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: Card(
+          margin: EdgeInsets.zero,
+          elevation: 5,
+          shadowColor: const Color(0xffeae7fd),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25)),
           ),
-          const SizedBox(height: 14),
-          Text(
-            noteModel.title,
-            style: AppTextStyles.textStyle16ExtraBold,
+          child: CustomContainer(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                NoteCardItemImage(
+                  image: noteModel.image,
+                ),
+                const SizedBox(height: 14),
+                Text(
+                  noteModel.title,
+                  style: AppTextStyles.textStyle16ExtraBold,
+                ),
+                Text(
+                  '${noteModel.files} Files',
+                  style: AppTextStyles.textStyle16SemiBold,
+                ),
+                Text(
+                  'Size: ${noteModel.files} GB',
+                  style: AppTextStyles.textStyle10Medium,
+                ),
+              ],
+            ),
           ),
-          Text(
-            '${noteModel.files} Files',
-            style: AppTextStyles.textStyle16SemiBold,
-          ),
-          Text(
-            'Size: ${noteModel.files} GB',
-            style: AppTextStyles.textStyle10Medium,
-          ),
-        ],
+        ),
       ),
     );
   }

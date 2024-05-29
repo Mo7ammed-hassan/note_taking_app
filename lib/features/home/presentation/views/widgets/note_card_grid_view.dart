@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:note_taking_app/core/models/note_card_item_model.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 
@@ -45,17 +46,11 @@ class NoteCardGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: (){
+          onTap: () {
             // selected index and mdo nav..
           },
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 171, maxHeight: 171),
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: NoteCardItem(
-                noteModel: noteList[index],
-              ),
-            ),
+          child: NoteCardItem(
+            noteModel: noteList[index],
           ),
         );
       },

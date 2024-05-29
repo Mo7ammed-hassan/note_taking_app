@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,14 +12,16 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      padding: EdgeInsets.only(right: 12, left: 12, top: 18),
       child: CustomScrollView(
         slivers: [
           // --cusom app bar--
           SliverToBoxAdapter(child: CustomHomeAppBar()),
           SliverToBoxAdapter(child: SizedBox(height: 35)),
+          // spacing card--
           SliverToBoxAdapter(child: ShowSpacingCard()),
           SliverToBoxAdapter(child: SizedBox(height: 65)),
+          // card section--
           NoteCardGridView(),
         ],
       ),

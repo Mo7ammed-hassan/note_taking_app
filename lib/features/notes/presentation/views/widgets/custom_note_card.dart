@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomCard extends StatelessWidget {
+class CustomNoteCard extends StatelessWidget {
   final String title;
   final String content;
 
-  const CustomCard({super.key, required this.title, required this.content});
+  const CustomNoteCard({super.key, required this.title, required this.content});
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:note_taking_app/core/utils/app_text_styls.dart';
 void showSnakBar(BuildContext context, {required String title}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      duration: const Duration(milliseconds: 349),
+      duration: const Duration(milliseconds: 348),
       backgroundColor: AppColors.splashColor,
       content: Text(
         title,

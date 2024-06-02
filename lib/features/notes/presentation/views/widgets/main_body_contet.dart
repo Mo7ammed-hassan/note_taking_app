@@ -17,7 +17,7 @@ class MainBodyContent extends StatelessWidget {
         SizedBox(
           height: 8,
         ),
-        // notes
+        // notes section
         Expanded(child: NotesCardGridView()),
       ],
     );

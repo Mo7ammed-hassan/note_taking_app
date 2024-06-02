@@ -51,11 +51,14 @@ class NoteCardGridView extends StatelessWidget {
             // selected index and mdo nav..
             if (index == 0) {
               GoRouter.of(context).push('/notes');
-            }if (index == 1) {
+            }
+            if (index == 1) {
               GoRouter.of(context).push('/notes');
-            }if (index == 2) {
+            }
+            if (index == 2) {
               GoRouter.of(context).push('/notes');
-            }if (index == 3) {
+            }
+            if (index == 3) {
               GoRouter.of(context).push('/notes');
             }
           },

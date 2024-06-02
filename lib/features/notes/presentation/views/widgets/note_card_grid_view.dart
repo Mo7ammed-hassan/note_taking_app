@@ -32,7 +32,7 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
-     NoteCardItemModel(
+    NoteCardItemModel(
       title: 'Personal',
       image: Assets.imagesNote,
       size: 65,
@@ -57,7 +57,7 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
-     NoteCardItemModel(
+    NoteCardItemModel(
       title: 'Personal',
       image: Assets.imagesNote,
       size: 65,
@@ -82,8 +82,7 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
-
-     NoteCardItemModel(
+    NoteCardItemModel(
       title: 'Personal',
       image: Assets.imagesNote,
       size: 65,
@@ -108,7 +107,7 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
-     NoteCardItemModel(
+    NoteCardItemModel(
       title: 'Personal',
       image: Assets.imagesNote,
       size: 65,
@@ -133,8 +132,7 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
-
-     NoteCardItemModel(
+    NoteCardItemModel(
       title: 'Personal',
       image: Assets.imagesNote,
       size: 65,
@@ -159,7 +157,7 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
-     NoteCardItemModel(
+    NoteCardItemModel(
       title: 'Personal',
       image: Assets.imagesNote,
       size: 65,
@@ -190,6 +188,7 @@ class NotesCardGridView extends StatelessWidget {
     return MasonryGridView.builder(
       padding: EdgeInsets.zero,
       itemCount: noteList.length,
+      crossAxisSpacing: 3,
       gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),

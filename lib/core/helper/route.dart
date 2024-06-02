@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:note_taking_app/features/home/presentation/views/home_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/note_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/register_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/login_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/walkthough_view.dart';
@@ -11,7 +11,7 @@ final GoRouter router = GoRouter(
       path: '/',
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: const HomeView(),
+        child: const NoteView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: animation,

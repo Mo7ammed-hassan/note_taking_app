@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/features/home/presentation/views/home_view.dart';
-import 'package:note_taking_app/features/notes/presentation/views/note_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/personal_note_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/work_note_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/register_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/login_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/walkthough_view.dart';
@@ -102,6 +103,25 @@ final GoRouter router = GoRouter(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
         child: const NoteView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: animation.drive(
+              Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).chain(CurveTween(curve: Curves.linear)),
+            ),
+            child: child,
+          );
+        },
+      ),
+    ),
+    GoRoute(
+      path: '/workNote',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(milliseconds: 450),
+        key: state.pageKey,
+        child: const WorkNoteView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(

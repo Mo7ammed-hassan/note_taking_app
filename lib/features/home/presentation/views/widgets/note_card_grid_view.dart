@@ -56,7 +56,7 @@ class NoteCardGridView extends StatelessWidget {
               GoRouter.of(context).push('/notes');
             }
             if (index == 2) {
-              GoRouter.of(context).push('/notes');
+              GoRouter.of(context).push('/workNote');
             }
             if (index == 3) {
               GoRouter.of(context).push('/notes');

@@ -4,8 +4,9 @@ import 'package:note_taking_app/core/models/note_card_item_model.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_card.dart';
 
-class NotesCardGridView extends StatelessWidget {
-  const NotesCardGridView({super.key});
+class PersonalNotesCardGridView extends StatelessWidget {
+  const PersonalNotesCardGridView({super.key});
+
   static List<NoteCardItemModel> noteList = const [
     NoteCardItemModel(
       title: 'Personal',

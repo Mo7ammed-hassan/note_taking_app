@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_app_bar.dart';
-import 'package:note_taking_app/features/notes/presentation/views/widgets/note_card_grid_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/widgets/personal_note_card_grid_view.dart';
 
 class MainBodyContent extends StatelessWidget {
   const MainBodyContent({
@@ -21,7 +21,7 @@ class MainBodyContent extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
-            child: NotesCardGridView(),
+            child: PersonalNotesCardGridView(),
           ),
         ),
       ],

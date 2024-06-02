@@ -35,16 +35,15 @@ class NotesCardGridView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: MasonryGridView.builder(
-        itemCount: noteList.length,
-        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2),
-        itemBuilder: (context, index) => CustomNoteCard(
-          title: 'Moahmed',
-          content: noteList[index].title,
-        ),
+    return MasonryGridView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: noteList.length,
+      gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (context, index) => CustomNoteCard(
+        title: 'Moahmed',
+        content: noteList[index].title,
       ),
     );
   }

@@ -15,10 +15,7 @@ class NoteViewBody extends StatelessWidget {
         // custom note app Bar
         SafeArea(child: CustomNoteAppBar()),
         // notes
-        Padding(
-          padding: EdgeInsets.only(left: 8, right: 8, top: 12),
-          child: NotesCardGridView(),
-        ),
+        Expanded(child: NotesCardGridView()),
       ],
     );
   }

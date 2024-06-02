@@ -13,6 +13,10 @@ class MainBodyContent extends StatelessWidget {
       children: [
         // custom note app Bar
         SafeArea(child: CustomNoteAppBar()),
+        // space between note app Bar and note section
+        SizedBox(
+          height: 8,
+        ),
         // notes
         Expanded(child: NotesCardGridView()),
       ],

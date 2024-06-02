@@ -32,6 +32,158 @@ class NotesCardGridView extends StatelessWidget {
       size: 1.02,
       files: 201,
     ),
+     NoteCardItemModel(
+      title: 'Personal',
+      image: Assets.imagesNote,
+      size: 65,
+      files: 30,
+    ),
+    NoteCardItemModel(
+      title: 'Academic',
+      image: Assets.imagesAcademic,
+      size: 2.26,
+      files: 102,
+    ),
+    NoteCardItemModel(
+      title: 'Work',
+      image: Assets.imagesWork,
+      size: 1.57,
+      files: 300,
+    ),
+    NoteCardItemModel(
+      title:
+          'Others OthersOthersOthers\nOthersOthersOthers\nOthersOthersOthersOthers',
+      image: Assets.imagesOthers,
+      size: 1.02,
+      files: 201,
+    ),
+     NoteCardItemModel(
+      title: 'Personal',
+      image: Assets.imagesNote,
+      size: 65,
+      files: 30,
+    ),
+    NoteCardItemModel(
+      title: 'Academic',
+      image: Assets.imagesAcademic,
+      size: 2.26,
+      files: 102,
+    ),
+    NoteCardItemModel(
+      title: 'Work',
+      image: Assets.imagesWork,
+      size: 1.57,
+      files: 300,
+    ),
+    NoteCardItemModel(
+      title:
+          'Others OthersOthersOthers\nOthersOthersOthers\nOthersOthersOthersOthers',
+      image: Assets.imagesOthers,
+      size: 1.02,
+      files: 201,
+    ),
+
+     NoteCardItemModel(
+      title: 'Personal',
+      image: Assets.imagesNote,
+      size: 65,
+      files: 30,
+    ),
+    NoteCardItemModel(
+      title: 'Academic',
+      image: Assets.imagesAcademic,
+      size: 2.26,
+      files: 102,
+    ),
+    NoteCardItemModel(
+      title: 'Work',
+      image: Assets.imagesWork,
+      size: 1.57,
+      files: 300,
+    ),
+    NoteCardItemModel(
+      title:
+          'Others OthersOthersOthers\nOthersOthersOthers\nOthersOthersOthersOthers',
+      image: Assets.imagesOthers,
+      size: 1.02,
+      files: 201,
+    ),
+     NoteCardItemModel(
+      title: 'Personal',
+      image: Assets.imagesNote,
+      size: 65,
+      files: 30,
+    ),
+    NoteCardItemModel(
+      title: 'Academic',
+      image: Assets.imagesAcademic,
+      size: 2.26,
+      files: 102,
+    ),
+    NoteCardItemModel(
+      title: 'Work',
+      image: Assets.imagesWork,
+      size: 1.57,
+      files: 300,
+    ),
+    NoteCardItemModel(
+      title:
+          'Others OthersOthersOthers\nOthersOthersOthers\nOthersOthersOthersOthers',
+      image: Assets.imagesOthers,
+      size: 1.02,
+      files: 201,
+    ),
+
+     NoteCardItemModel(
+      title: 'Personal',
+      image: Assets.imagesNote,
+      size: 65,
+      files: 30,
+    ),
+    NoteCardItemModel(
+      title: 'Academic',
+      image: Assets.imagesAcademic,
+      size: 2.26,
+      files: 102,
+    ),
+    NoteCardItemModel(
+      title: 'Work',
+      image: Assets.imagesWork,
+      size: 1.57,
+      files: 300,
+    ),
+    NoteCardItemModel(
+      title:
+          'Others OthersOthersOthers\nOthersOthersOthers\nOthersOthersOthersOthers',
+      image: Assets.imagesOthers,
+      size: 1.02,
+      files: 201,
+    ),
+     NoteCardItemModel(
+      title: 'Personal',
+      image: Assets.imagesNote,
+      size: 65,
+      files: 30,
+    ),
+    NoteCardItemModel(
+      title: 'Academic',
+      image: Assets.imagesAcademic,
+      size: 2.26,
+      files: 102,
+    ),
+    NoteCardItemModel(
+      title: 'Work',
+      image: Assets.imagesWork,
+      size: 1.57,
+      files: 300,
+    ),
+    NoteCardItemModel(
+      title:
+          'Others OthersOthersOthers\nOthersOthersOthers\nOthersOthersOthersOthers',
+      image: Assets.imagesOthers,
+      size: 1.02,
+      files: 201,
+    ),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:note_taking_app/features/home/presentation/views/home_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/note_view.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/register_view.dart';
+import 'package:note_taking_app/features/on_boarding/presentation/views/register_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/login_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/walkthough_view.dart';
+import 'package:note_taking_app/features/splash/splash_view.dart';
 
 final GoRouter router = GoRouter(
   routes: [
@@ -11,7 +13,7 @@ final GoRouter router = GoRouter(
       path: '/',
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: const NoteView(),
+        child: const SplashView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: animation,
@@ -42,7 +44,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/login',
       pageBuilder: (context, state) => CustomTransitionPage(
-        transitionDuration: const Duration(milliseconds: 500),
+        transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
         child: const LoginView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -61,7 +63,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/register',
       pageBuilder: (context, state) => CustomTransitionPage(
-        transitionDuration: const Duration(milliseconds: 500),
+        transitionDuration: const Duration(milliseconds: 450),
         child: const RegisterView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) =>
             SlideTransition(
@@ -73,6 +75,44 @@ final GoRouter router = GoRouter(
           ),
           child: child,
         ),
+      ),
+    ),
+    GoRoute(
+      path: '/home',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(milliseconds: 450),
+        key: state.pageKey,
+        child: const HomeView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: animation.drive(
+              Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).chain(CurveTween(curve: Curves.linear)),
+            ),
+            child: child,
+          );
+        },
+      ),
+    ),
+    GoRoute(
+      path: '/notes',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(milliseconds: 450),
+        key: state.pageKey,
+        child: const NoteView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: animation.drive(
+              Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).chain(CurveTween(curve: Curves.linear)),
+            ),
+            child: child,
+          );
+        },
       ),
     ),
   ],

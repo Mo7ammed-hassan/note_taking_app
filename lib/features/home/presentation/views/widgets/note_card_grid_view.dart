@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/models/note_card_item_model.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 
@@ -42,12 +43,21 @@ class NoteCardGridView extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 18,
-        mainAxisSpacing: 30,
+        mainAxisSpacing: 25,
       ),
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
             // selected index and mdo nav..
+            if (index == 0) {
+              GoRouter.of(context).push('/notes');
+            }if (index == 1) {
+              GoRouter.of(context).push('/notes');
+            }if (index == 2) {
+              GoRouter.of(context).push('/notes');
+            }if (index == 3) {
+              GoRouter.of(context).push('/notes');
+            }
           },
           child: NoteCardItem(
             noteModel: noteList[index],

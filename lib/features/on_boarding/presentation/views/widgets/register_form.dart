@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
@@ -25,14 +26,10 @@ class _RegisterFormState extends State<RegisterForm> {
         children: [
           // --custom textfield--
           const CustomTextFormField(
-            labelText: 'User name',
-            keyboardType: TextInputType.name,
-          ),
+              labelText: 'User name', keyboardType: TextInputType.name),
           const SizedBox(height: 16),
           const CustomTextFormField(
-            labelText: 'Email',
-            keyboardType: TextInputType.emailAddress,
-          ),
+              labelText: 'Email', keyboardType: TextInputType.emailAddress),
           const SizedBox(height: 16),
           const CustomTextFormField(
             labelText: 'Password',
@@ -87,6 +84,10 @@ class _RegisterFormState extends State<RegisterForm> {
               onTap: () {
                 if (_formKey.currentState!.validate()) {
                   showSnakBar(context, title: 'Processing Data');
+                  Future.delayed(
+                    const Duration(milliseconds: 350),
+                    () => GoRouter.of(context).push('/home'),
+                  );
                 }
               },
               title: 'Sign Up',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
@@ -30,7 +31,7 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(height: 16),
           const CustomTextFormField(
             labelText: 'Password',
-            isObscureText:true, 
+            isObscureText: true,
             keyboardType: TextInputType.visiblePassword,
           ),
           // Text
@@ -74,9 +75,12 @@ class _LoginFormState extends State<LoginForm> {
               onTap: () {
                 if (_formKey.currentState!.validate()) {
                   showSnakBar(context, title: 'Processing Data');
+                  // we used go not push
+                  Future.delayed(
+                    const Duration(milliseconds: 350),
+                    () => GoRouter.of(context).push('/home'),
+                  );
                 }
-
-                // we used go not push
               },
               title: 'Log in',
             ),

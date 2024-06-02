@@ -18,7 +18,12 @@ class MainBodyContent extends StatelessWidget {
           height: 8,
         ),
         // notes section
-        Expanded(child: NotesCardGridView()),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: NotesCardGridView(),
+          ),
+        ),
       ],
     );
   }

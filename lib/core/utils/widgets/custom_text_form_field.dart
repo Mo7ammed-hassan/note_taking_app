@@ -9,11 +9,11 @@ class CustomTextFormField extends StatefulWidget {
     super.key,
     required this.labelText,
     this.keyboardType,
-    this.isObscureText,
+    this.isObscureText = false,
   });
   final String labelText;
   final TextInputType? keyboardType;
-  final bool? isObscureText;
+  final bool isObscureText;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -32,7 +32,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         }
       },
       obscuringCharacter: '*',
-      obscureText: showPassword,
+      obscureText: widget.isObscureText ? showPassword : false,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       cursorColor: AppColors.primaryColor,
       decoration: InputDecoration(

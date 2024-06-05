@@ -8,7 +8,7 @@ AppBar buildAppBar(BuildContext context,{required String title}) {
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      automaticallyImplyLeading: true,
+      
       leading: IconButton(
           style: ButtonStyle(
             iconSize: const MaterialStatePropertyAll(17),

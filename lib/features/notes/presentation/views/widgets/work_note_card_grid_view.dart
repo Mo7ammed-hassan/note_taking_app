@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:note_taking_app/core/helper/helper_list.dart';
-import 'package:note_taking_app/features/notes/presentation/views/widgets/add_new_note.dart';
+import 'package:note_taking_app/features/notes/presentation/views/widgets/add_new_note_card.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_card.dart';
 
 class WorkNoteCardGridView extends StatelessWidget {

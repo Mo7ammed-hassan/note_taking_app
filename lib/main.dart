@@ -18,6 +18,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Inter',
         scaffoldBackgroundColor: AppColors.scaffoldColor,
+        //iconTheme: IconThemeData(color: AppColors.primaryColor),
+        iconButtonTheme: IconButtonThemeData(
+          style: ButtonStyle(
+            iconColor: MaterialStatePropertyAll(
+              AppColors.primaryColor,
+            ),
+          ),
+        ),
         //useMaterial3: true,
       ),
       routerConfig: router,

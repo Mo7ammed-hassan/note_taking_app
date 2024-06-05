@@ -11,9 +11,10 @@ class WorkNoteViewBody extends StatelessWidget {
       children: [
         // custom note app bar
         SafeArea(
-            child: CustomNoteAppBar(
-          title: 'Work',
-        )),
+          child: CustomNoteAppBar(
+            title: 'Work',
+          ),
+        ),
         SizedBox(
           height: 8,
         ),
@@ -33,6 +34,6 @@ class WorkNoteViewBody extends StatelessWidget {
 
 /**
  in future we should refactor code >>
- create builder widget to build which grid i will return..
+ create builder widget to build which grid that i will return..
   
  */

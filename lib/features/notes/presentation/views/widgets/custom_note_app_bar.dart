@@ -6,8 +6,8 @@ import 'package:note_taking_app/core/utils/app_text_styls.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 
 class CustomNoteAppBar extends StatelessWidget {
-  const CustomNoteAppBar({super.key});
-
+  const CustomNoteAppBar({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,7 +37,7 @@ class CustomNoteAppBar extends StatelessWidget {
 
           // Title
           Text(
-            'Personal',
+            title,
             style: AppTextStyles.textStyle17SemiBold,
           ),
 

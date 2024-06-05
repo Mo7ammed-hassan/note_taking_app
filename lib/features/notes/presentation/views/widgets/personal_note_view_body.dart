@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_add_note_floating_action_btn.dart';
-import 'package:note_taking_app/features/notes/presentation/views/widgets/main_body_contet.dart';
+import 'package:note_taking_app/features/notes/presentation/views/widgets/personal_main_body_contet.dart';
 
 class NoteViewBody extends StatelessWidget {
   const NoteViewBody({

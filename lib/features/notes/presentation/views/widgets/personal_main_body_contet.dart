@@ -12,7 +12,10 @@ class MainBodyContent extends StatelessWidget {
     return const Column(
       children: [
         // custom note app Bar
-        SafeArea(child: CustomNoteAppBar()),
+        SafeArea(
+            child: CustomNoteAppBar(
+          title: 'Personal',
+        )),
         // space between note app Bar and note section
         SizedBox(
           height: 8,

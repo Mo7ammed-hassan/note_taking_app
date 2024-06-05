@@ -14,7 +14,7 @@ final GoRouter router = GoRouter(
       path: '/',
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: const SplashView(),
+        child: const WorkNoteView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: animation,

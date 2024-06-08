@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
-import 'package:note_taking_app/core/utils/functions/build)input_border.dart';
+import 'package:note_taking_app/core/utils/functions/build_input_border.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 
 class CustomTextFormField extends StatefulWidget {

@@ -18,7 +18,7 @@ class ShowSpacingCard extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: AppColors.primaryGradient,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: [
+            boxShadow: const [
               //buildBoxShadow(),
             ],
           ),

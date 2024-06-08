@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styls.dart';
-import 'package:note_taking_app/core/utils/functions/build_box_shadow.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/custom_pie_chart_widget.dart';
 
 class ShowSpacingCard extends StatelessWidget {
@@ -20,7 +19,7 @@ class ShowSpacingCard extends StatelessWidget {
             gradient: AppColors.primaryGradient,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
-              buildBoxShadow(),
+              //buildBoxShadow(),
             ],
           ),
           child: Row(

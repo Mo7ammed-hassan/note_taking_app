@@ -19,8 +19,13 @@ abstract class AppTextStyles {
   );
   static TextStyle textStyle18SemiBold = TextStyle(
     fontSize: 18,
-    color: AppColors.noteBodyColor,
+    color: AppColors.cardHeadColor,
     fontWeight: FontWeight.w600,
+  );
+  static TextStyle textStyle18ExtraBold = TextStyle(
+    fontSize: 18,
+    color: AppColors.noteBodyColor,
+    fontWeight: FontWeight.w800,
   );
   static TextStyle textStyle17SemiBold = TextStyle(
     fontSize: 17,

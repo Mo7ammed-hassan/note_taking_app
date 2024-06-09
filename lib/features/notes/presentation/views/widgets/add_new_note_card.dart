@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
-import 'package:note_taking_app/core/utils/app_text_styls.dart';
-import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_page.dart';
+import 'package:note_taking_app/core/utils/app_text_stylesdart';
+import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
 
 class AddNewNoteCard extends StatelessWidget {
   const AddNewNoteCard({super.key});
@@ -22,7 +22,7 @@ class AddNewNoteCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AddNotePage(),
+                  builder: (context) => const AddNoteView(),
                 ),
               );
             },

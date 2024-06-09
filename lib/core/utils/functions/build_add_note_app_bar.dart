@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import 'package:note_taking_app/core/utils/app_text_styls.dart';
+import 'package:note_taking_app/core/utils/app_text_stylesdart';
 
 PreferredSizeWidget customAddNoteAppBar(BuildContext context) {
   return AppBar(
@@ -37,3 +38,4 @@ PreferredSizeWidget customAddNoteAppBar(BuildContext context) {
     ],
   );
 }
+

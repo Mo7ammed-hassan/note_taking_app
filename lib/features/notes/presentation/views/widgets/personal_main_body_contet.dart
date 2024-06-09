@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_app_bar.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/personal_note_card_grid_view.dart';
 
-class MainBodyContent extends StatelessWidget {
-  const MainBodyContent({
+class PersonalNotesSection extends StatelessWidget {
+  const PersonalNotesSection({
     super.key,
   });
 
@@ -13,9 +13,10 @@ class MainBodyContent extends StatelessWidget {
       children: [
         // custom note app Bar
         SafeArea(
-            child: CustomNoteAppBar(
-          title: 'Personal',
-        )),
+          child: CustomNoteAppBar(
+            title: 'Personal',
+          ),
+        ),
         // space between note app Bar and note section
         SizedBox(
           height: 8,

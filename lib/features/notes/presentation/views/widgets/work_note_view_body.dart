@@ -7,25 +7,25 @@ class WorkNoteViewBody extends StatelessWidget {
   const WorkNoteViewBody({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        // custom note app bar
-        SafeArea(
-          child: CustomNoteAppBar(
+    return const SafeArea(
+      child: Column(
+        children: [
+          // custom note app bar
+          CustomNoteAppBar(
             title: 'Work',
           ),
-        ),
-        SizedBox(
-          height: 8,
-        ),
-        // notes section
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
-            child: WorkNoteCardGridView(),
+          SizedBox(
+            height: 8,
           ),
-        ),
-      ],
+          // notes section
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: WorkNoteCardGridView(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

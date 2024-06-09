@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_add_note_floating_action_btn.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/personal_main_body_contet.dart';
 
-class NoteViewBody extends StatelessWidget {
-  const NoteViewBody({
+class PersonalNoteViewBody extends StatelessWidget {
+  const PersonalNoteViewBody({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class NoteViewBody extends StatelessWidget {
     return const Stack(
       children: [
         // Main content (app bar and notes)
-        MainBodyContent(),
+        PersonalNotesSection(),
         // Add new note (FloatingActionButton)
         Align(
           alignment: Alignment.bottomCenter,

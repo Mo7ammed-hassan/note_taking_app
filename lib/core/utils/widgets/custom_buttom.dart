@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
-import 'package:note_taking_app/core/utils/app_text_styls.dart';
+import 'package:note_taking_app/core/utils/app_text_stylesdart';
 
 class CustomButtom extends StatelessWidget {
   const CustomButtom({super.key, required this.onTap, required this.title});

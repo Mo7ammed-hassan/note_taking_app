@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/features/home/presentation/views/home_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/personal_note_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/work_note_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/register_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/login_view.dart';
@@ -98,11 +99,11 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/notes',
+      path: '/workNotes',
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
-        child: const NoteView(),
+        child: const WorkNoteView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(
@@ -117,11 +118,30 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/workNote',
+      path: '/personalNotes',
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
-        child: const WorkNoteView(),
+        child: const PersonalNoteView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: animation.drive(
+              Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).chain(CurveTween(curve: Curves.linear)),
+            ),
+            child: child,
+          );
+        },
+      ),
+    ),
+    GoRoute(
+      path: '/addNote',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(milliseconds: 450),
+        key: state.pageKey,
+        child: const AddNoteView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(

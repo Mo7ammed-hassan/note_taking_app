@@ -22,9 +22,19 @@ abstract class AppTextStyles {
     color: AppColors.cardHeadColor,
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle textStyle18Bold = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle textStyle18ExtraBold = TextStyle(
     fontSize: 18,
     color: AppColors.noteBodyColor,
+    fontWeight: FontWeight.w800,
+  );
+  static TextStyle textStyle19ExtraBold = TextStyle(
+    fontSize: 19,
+    color: AppColors.mainColor,
     fontWeight: FontWeight.w800,
   );
   static TextStyle textStyle17SemiBold = TextStyle(

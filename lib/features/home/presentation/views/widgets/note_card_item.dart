@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/models/note_card_item_model.dart';
-import 'package:note_taking_app/core/utils/app_text_stylesdart';
+import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_container.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/note_card_image.dart';
 

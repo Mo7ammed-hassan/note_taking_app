@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
-import 'package:note_taking_app/core/utils/app_text_stylesdart';
+import 'package:note_taking_app/core/utils/app_text_styles.dart';
 
 void showSnakBar(BuildContext context, {required String title}) {
   ScaffoldMessenger.of(context).showSnackBar(

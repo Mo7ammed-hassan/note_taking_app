@@ -12,7 +12,7 @@ class RegisterViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: SizedBox(height: 50),
+            child: SizedBox(height: 40),
           ),
           SliverFillRemaining(
             hasScrollBody: false,

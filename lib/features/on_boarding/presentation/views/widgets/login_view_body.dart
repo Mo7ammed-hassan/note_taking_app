@@ -13,7 +13,7 @@ class LoginViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: SizedBox(height: 50),
+            child: SizedBox(height: 40), // 50
           ),
           SliverFillRemaining(
             hasScrollBody: false,

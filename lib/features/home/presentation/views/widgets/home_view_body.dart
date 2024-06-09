@@ -12,15 +12,15 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(right: 12, left: 12, top: 18),
+      padding: EdgeInsets.only(right: 13, left: 13, top: 20),
       child: CustomScrollView(
         slivers: [
           // --cusom app bar--
           SliverToBoxAdapter(child: CustomHomeAppBar()),
-          SliverToBoxAdapter(child: SizedBox(height: 30)),
+          SliverToBoxAdapter(child: SizedBox(height: 13)),
           // spacing card--
           SliverToBoxAdapter(child: ShowSpacingCard()),
-          SliverToBoxAdapter(child: SizedBox(height: 62)),
+          SliverToBoxAdapter(child: SizedBox(height: 50)),
           // card section--
           NoteCardGridView(),
         ],

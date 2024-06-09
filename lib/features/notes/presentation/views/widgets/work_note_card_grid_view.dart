@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:note_taking_app/core/helper/helper_list.dart';
@@ -16,15 +15,14 @@ class WorkNoteCardGridView extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: noteList.length,
       crossAxisSpacing: 3,
-      gridDelegate:
-          const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
       itemBuilder: (context, index) => index == 0
           ? const AddNewNoteCard()
           : CustomNoteCard(
-              title: 'Moahmed',
-              content: noteList[index].title,
+              title: noteList[index].title,
+              content: noteList[index].content!,
             ),
     );
   }

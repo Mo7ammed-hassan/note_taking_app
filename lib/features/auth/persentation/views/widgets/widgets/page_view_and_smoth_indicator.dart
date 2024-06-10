@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/views/widgets/custom_page_view.dart';
+import 'package:note_taking_app/features/auth/persentation/views/widgets/widgets/custom_page_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageViewAndSmothIndicator extends StatefulWidget {

@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/views/widgets/register_form.dart';
+import 'package:note_taking_app/features/auth/persentation/views/widgets/widgets/login_form.dart';
 
-class RegisterViewBody extends StatelessWidget {
-  const RegisterViewBody({super.key});
+class LoginViewBody extends StatelessWidget {
+  const LoginViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +13,11 @@ class RegisterViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: SizedBox(height: 40),
+            child: SizedBox(height: 40), // 50
           ),
           SliverFillRemaining(
             hasScrollBody: false,
-            child: RegisterForm(),
+            child: LoginForm(),
           ),
         ],
       ),

@@ -4,8 +4,8 @@ import 'package:note_taking_app/features/home/presentation/views/home_view.dart'
 import 'package:note_taking_app/features/notes/presentation/views/personal_note_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/work_note_view.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/views/register_view.dart';
-import 'package:note_taking_app/features/on_boarding/presentation/views/login_view.dart';
+import 'package:note_taking_app/features/auth/persentation/views/register_view.dart';
+import 'package:note_taking_app/features/auth/persentation/views/login_view.dart';
 import 'package:note_taking_app/features/on_boarding/presentation/views/walkthough_view.dart';
 import 'package:note_taking_app/features/splash/splash_view.dart';
 

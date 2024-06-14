@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_text_form_field.dart';
+import 'package:note_taking_app/features/auth/persentation/manager/cubit/auth_cubit.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({
@@ -18,6 +20,21 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController configePasswordController =
+      TextEditingController();
+
+  @override
+  void dispose() {
+    userNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    configePasswordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -26,19 +43,25 @@ class _RegisterFormState extends State<RegisterForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // --custom textfield--
-          const CustomTextFormField(
-              labelText: 'User name', keyboardType: TextInputType.name),
+          CustomTextFormField(
+              controller: userNameController,
+              labelText: 'User name',
+              keyboardType: TextInputType.name),
           const SizedBox(height: 16),
-          const CustomTextFormField(
-              labelText: 'Email', keyboardType: TextInputType.emailAddress),
+          CustomTextFormField(
+              controller: emailController,
+              labelText: 'Email',
+              keyboardType: TextInputType.emailAddress),
           const SizedBox(height: 16),
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: passwordController,
             labelText: 'Password',
             isObscureText: true,
             keyboardType: TextInputType.visiblePassword,
           ),
           const SizedBox(height: 16),
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: configePasswordController,
             labelText: 'Confirm Password',
             isObscureText: true,
             keyboardType: TextInputType.visiblePassword,
@@ -85,8 +108,13 @@ class _RegisterFormState extends State<RegisterForm> {
             width: double.infinity,
             child: CustomButtom(
               onTap: () {
-                if (_formKey.currentState!.validate()) {
-
+                if (_formKey.currentState!.validate() &&
+                    passwordController.text == configePasswordController.text) {
+                  BlocProvider.of<AuthCubit>(context).signUp(
+                    userNameController.text,
+                    emailController.text,
+                    passwordController.text,
+                  );
                   // sign up Method
                   showSnakBar(context, title: 'Processing Data');
                   Future.delayed(

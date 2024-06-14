@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_text_form_field.dart';
+import 'package:note_taking_app/features/auth/persentation/manager/cubit/auth_cubit.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -16,6 +18,15 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -24,12 +35,14 @@ class _LoginFormState extends State<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // --custom textfield--
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: emailController,
             labelText: 'Email',
             keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(height: 16),
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: passwordController,
             labelText: 'Password',
             isObscureText: true,
             keyboardType: TextInputType.visiblePassword,
@@ -74,7 +87,14 @@ class _LoginFormState extends State<LoginForm> {
             child: CustomButtom(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
+                  // triger cubit ..
+                  BlocProvider.of<AuthCubit>(context).signIn(
+                    emailController.text,
+                    passwordController.text,
+                  );
+
                   showSnakBar(context, title: 'Processing Data');
+
                   // we used go not push
                   Future.delayed(
                     const Duration(milliseconds: 350),

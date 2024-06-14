@@ -9,11 +9,12 @@ class CustomTextFormField extends StatefulWidget {
     super.key,
     required this.labelText,
     this.keyboardType,
-    this.isObscureText = false,
+    this.isObscureText = false, required this.controller,
   });
   final String labelText;
   final TextInputType? keyboardType;
   final bool isObscureText;
+  final TextEditingController controller;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -24,6 +25,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Faild is required';

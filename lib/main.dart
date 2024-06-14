@@ -23,33 +23,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AuthCubit(
-            gitIt.get<SignInUseCase>(),
-            gitIt.get<SignUpUseCase>(),
-          ),
-        )
-      ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: 'Note Taking',
-        theme: ThemeData(
-          fontFamily: 'Inter',
-          scaffoldBackgroundColor: AppColors.scaffoldColor,
-          //iconTheme: IconThemeData(color: AppColors.primaryColor),
-          iconButtonTheme: IconButtonThemeData(
-            style: ButtonStyle(
-              iconColor: MaterialStatePropertyAll(
-                AppColors.primaryColor,
-              ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'Note Taking',
+      theme: ThemeData(
+        fontFamily: 'Inter',
+        scaffoldBackgroundColor: AppColors.scaffoldColor,
+        //iconTheme: IconThemeData(color: AppColors.primaryColor),
+        iconButtonTheme: IconButtonThemeData(
+          style: ButtonStyle(
+            iconColor: MaterialStatePropertyAll(
+              AppColors.primaryColor,
             ),
           ),
-          //useMaterial3: true,
         ),
-        routerConfig: router,
+        //useMaterial3: true,
       ),
+      routerConfig: router,
     );
   }
 }

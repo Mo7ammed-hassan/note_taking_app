@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:dartz/dartz.dart';
 import 'package:note_taking_app/features/auth/data/models/user_model.dart';
 import 'package:note_taking_app/features/auth/domain/entities/user_entity.dart';

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_taking_app/core/helper/route.dart';
-import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:note_taking_app/features/auth/domain/use_cases/sign_in.dart';
-import 'package:note_taking_app/features/auth/domain/use_cases/sign_up.dart';
-import 'package:note_taking_app/features/auth/persentation/manager/cubit/auth_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {

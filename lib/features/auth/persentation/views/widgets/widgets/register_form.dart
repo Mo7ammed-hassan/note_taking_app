@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/functions/build_show_snak_bar.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
@@ -49,7 +50,9 @@ class _RegisterFormState extends State<RegisterForm> {
             onTap: () {},
             child: Text(
               'Forgot password?',
-              style: AppTextStyles.textStyle16SemiBold,
+              style: AppTextStyles.textStyle16SemiBold.copyWith(
+                color: AppColors.primaryColor,
+              ),
             ),
           ),
           const Expanded(

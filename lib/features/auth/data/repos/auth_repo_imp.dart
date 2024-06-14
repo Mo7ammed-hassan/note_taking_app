@@ -5,22 +5,26 @@ import 'package:note_taking_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
+  // -- SIGN IN --
   @override
   Future<Either<Exception, UserEntity>> signIn({
     required String email,
     required String password,
   }) async {
     try {
+      // call sign in
       final UserCredential credential =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      // pass user info to model
       final userModel = UserModel(
         userName: 'testUser',
         email: email,
         password: password,
       );
+      // pass data to UserEntity model
       final user = UserEntity(
         userName: 'testUser',
         email: email,
@@ -49,7 +53,7 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
-  // --SIGN UP--
+  // -- SIGN UP --
   @override
   Future<Either<Exception, UserEntity>> signUp({
     required String userName,
@@ -57,17 +61,19 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async {
     try {
+      // call sign up
       final UserCredential credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-
+      // pass user info to model
       final userModel = UserModel(
         userName: userName,
         email: email,
         password: password,
       );
+      // pass data to UserEntity model
       final user = UserEntity(
         userName: userName,
         email: email,

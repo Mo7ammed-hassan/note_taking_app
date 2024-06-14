@@ -1,7 +1,10 @@
+import 'package:dartz/dartz.dart';
+import 'package:note_taking_app/features/auth/domain/entities/user_entity.dart';
+
 abstract class AuthRepository {
   // login method
-  Future<void> signIn({String email, String password});
+  Future<Either<Exception, UserEntity>> signIn({required String email,required String password});
 
   // Registration method
-  Future<void> signUp({String email, String password});
+  Future<Either<Exception, UserEntity>> signUp({required String email,required String password});
 }

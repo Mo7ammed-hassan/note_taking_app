@@ -7,5 +7,5 @@ abstract class SignInUseCases {
 }
 
 abstract class SignUpUseCases {
-  Future<Either<Exception, UserEntity>> callSignUp(String email, String password);
+  Future<Either<Exception, UserEntity>> callSignUp(String userName,String email, String password);
 }

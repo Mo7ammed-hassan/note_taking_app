@@ -7,8 +7,11 @@ class SignUpUseCase extends SignUpUseCases {
   final AuthRepository authRepository;
 
   SignUpUseCase(this.authRepository);
+
   @override
-  Future<Either<Exception, UserEntity>> callSignUp(String email, String password) {
-    return authRepository.signUp(email: email, password: password);
+  Future<Either<Exception, UserEntity>> callSignUp(
+      String userName, String email, String password) {
+    return authRepository.signUp(
+        userName: userName, email: email, password: password);
   }
 }

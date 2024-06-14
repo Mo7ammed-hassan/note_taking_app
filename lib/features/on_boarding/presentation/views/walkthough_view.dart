@@ -14,14 +14,14 @@ class WalkthoughView extends StatelessWidget {
   const WalkthoughView({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.splashColor,
-      body: BlocProvider(
-        create: (context) => AuthCubit(
-          gitIt.get<SignInUseCase>(),
-          gitIt.get<SignUpUseCase>(),
-        ),
-        child: Column(
+    return BlocProvider(
+      create: (context) => AuthCubit(
+        gitIt.get<SignInUseCase>(),
+        gitIt.get<SignUpUseCase>(),
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.splashColor,
+        body: Column(
           children: [
             const SizedBox(height: 100),
             RichText(

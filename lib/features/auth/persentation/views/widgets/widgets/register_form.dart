@@ -86,6 +86,8 @@ class _RegisterFormState extends State<RegisterForm> {
             child: CustomButtom(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
+
+                  // sign up Method
                   showSnakBar(context, title: 'Processing Data');
                   Future.delayed(
                     const Duration(milliseconds: 350),

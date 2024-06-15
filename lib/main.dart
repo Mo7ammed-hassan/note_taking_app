@@ -18,6 +18,7 @@ Future<void> main() async {
     androidProvider: AndroidProvider.debug,
     appleProvider: AppleProvider.appAttest,
   );
+  setupDependencies();
   runApp(const MyApp());
 }
 

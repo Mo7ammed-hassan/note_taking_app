@@ -10,8 +10,6 @@ Exception handleFirebaseAuthException(FirebaseAuthException e) {
       return Exception('The password provided is too weak.');
     case 'email-already-in-use':
       return Exception('The email is already in use.');
-    case 'weak-password':
-      return Exception('The password provided is too weak.');
     default:
       return Exception('Authentication failed: ${e.message}');
   }

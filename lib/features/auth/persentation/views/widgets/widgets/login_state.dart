@@ -16,10 +16,6 @@ class LoginState extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthSuccess) {
           showSnakBar(context, title: 'Success Login');
-          Future.delayed(
-            const Duration(milliseconds: 350),
-            () => GoRouter.of(context).push('/home'),
-          );
         } else if (state is AuthFailure) {
           showSnakBar(context, title: state.error);
         }

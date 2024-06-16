@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_buttom.dart';
@@ -86,7 +88,7 @@ class _LoginFormState extends State<LoginForm> {
             child: CustomButtom(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  // Trigger cubit signIn
+                  // Trigger cubit signIn 
                   BlocProvider.of<AuthCubit>(context).signIn(
                     emailController.text,
                     passwordController.text,

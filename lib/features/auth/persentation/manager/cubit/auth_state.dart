@@ -17,3 +17,9 @@ final class AuthFailure extends AuthState {
 
   AuthFailure(this.error);
 }
+
+final class EmailNotVerifiedException extends AuthState {
+  final String error;
+
+  EmailNotVerifiedException(this.error);
+}

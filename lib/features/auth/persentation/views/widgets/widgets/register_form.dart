@@ -102,7 +102,7 @@ class _RegisterFormState extends State<RegisterForm> {
           SizedBox(
             width: double.infinity,
             child: CustomButtom(
-              onTap: () {
+              onTap: () async {
                 if (_formKey.currentState!.validate() &&
                     passwordController.text == confirmPasswordController.text) {
                   BlocProvider.of<AuthCubit>(context).signUp(

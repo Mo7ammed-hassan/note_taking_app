@@ -15,6 +15,7 @@ class RegisterState extends StatelessWidget {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
+          showSnakBar(context, title: 'Success Register');
           Future.delayed(const Duration(milliseconds: 350), () {
             GoRouter.of(context).push('/home');
           });

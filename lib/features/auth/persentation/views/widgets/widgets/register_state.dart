@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +15,6 @@ class RegisterState extends StatelessWidget {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          showSnakBar(context, title: 'Register success');
           Future.delayed(const Duration(milliseconds: 350), () {
             GoRouter.of(context).push('/home');
           });

@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubit(
-            gitIt.get<SignInUseCase>(),
-            gitIt.get<SignUpUseCase>(),
+            gitIt<SignInUseCase>(),
+            gitIt<SignUpUseCase>(),
           ),
         ),
       ],

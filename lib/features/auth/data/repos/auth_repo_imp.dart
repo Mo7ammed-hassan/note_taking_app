@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:note_taking_app/core/helper/fire_base_auth_exaption.dart';
 import 'package:note_taking_app/core/helper/map_fire_base_user_to_user_entity.dart';
@@ -19,6 +20,8 @@ class AuthRepositoryImpl implements AuthRepository {
         email: email,
         password: password,
       );
+      // Verification
+      await FirebaseAuth.instance.currentUser!.sendEmailVerification();
 
       // pass user info from firebase to user entity
       final user = mapFirebaseUserToUserEntity(credential.user);
@@ -47,6 +50,9 @@ class AuthRepositoryImpl implements AuthRepository {
         email: email,
         password: password,
       );
+
+      // Verification
+      await FirebaseAuth.instance.currentUser!.sendEmailVerification();
 
       // update user name
       await credential.user!.updateDisplayName(userName);

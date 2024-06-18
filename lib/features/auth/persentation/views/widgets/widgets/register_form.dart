@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
@@ -103,15 +104,17 @@ class _RegisterFormState extends State<RegisterForm> {
             width: double.infinity,
             child: CustomButtom(
               onTap: () async {
-                if (_formKey.currentState!.validate() &&
-                    passwordController.text == confirmPasswordController.text) {
-                  BlocProvider.of<AuthCubit>(context).signUp(
-                    userNameController.text,
-                    emailController.text,
-                    passwordController.text,
-                  );
-                } else {
-                  showSnakBar(context, title: 'Passwords do not match');
+                if (_formKey.currentState!.validate()) {
+                  if (passwordController.text ==
+                      confirmPasswordController.text) {
+                    BlocProvider.of<AuthCubit>(context).signUp(
+                      userNameController.text,
+                      emailController.text,
+                      passwordController.text,
+                    );
+                  } else {
+                    showSnakBar(context, title: 'Passwords do not match');
+                  }
                 }
               },
               title: 'Sign Up',

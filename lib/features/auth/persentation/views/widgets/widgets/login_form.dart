@@ -86,7 +86,7 @@ class _LoginFormState extends State<LoginForm> {
             child: CustomButtom(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  // Trigger cubit signIn 
+                  // Trigger cubit signIn
                   BlocProvider.of<AuthCubit>(context).signIn(
                     emailController.text,
                     passwordController.text,

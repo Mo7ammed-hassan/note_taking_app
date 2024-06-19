@@ -1,5 +1,5 @@
-// create data representation 
-// we should cashed it 
+// create data representation
+// we should cashed it
 class HomeEntity {
   final String userName;
   final double availableSpace;

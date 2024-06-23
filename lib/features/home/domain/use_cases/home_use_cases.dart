@@ -1,15 +1,9 @@
+import 'package:dartz/dartz.dart';
+import 'package:note_taking_app/features/home/data/models/note_model.dart';
 import 'package:note_taking_app/features/home/domain/repos/home_repo.dart';
 
 abstract class HomeUseCases {
-  Future<void> callNotes({required String boxNotes});
-}
-
-class HomeUseCasesImpl extends HomeUseCases {
-  final HomeRepo homeRepo;
-
-  HomeUseCasesImpl({required this.homeRepo});
-  @override
-  Future<void> callNotes({required String boxNotes}) {
-    return homeRepo.fetchNotes(boxNote: boxNotes);
-  }
+  Either<Failure, List<NoteModel>> callFetchNotes({required String boxNote});
+  Future<Either<Failure, List<String>>> callAddNewSection(
+      {required String boxName});
 }

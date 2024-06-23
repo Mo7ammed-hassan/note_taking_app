@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/helper/route.dart';
 import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:note_taking_app/core/utils/constants/boxes.dart';
 import 'package:note_taking_app/features/auth/domain/use_cases/sign_in.dart';
 import 'package:note_taking_app/features/auth/domain/use_cases/sign_up.dart';
 import 'package:note_taking_app/features/auth/persentation/manager/cubit/auth_cubit.dart';
 // Import the firebase_app_check plugin
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:note_taking_app/features/home/data/models/note_model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +22,12 @@ Future<void> main() async {
     appleProvider: AppleProvider.appAttest,
   );
   setupDependencies();
+  await Hive.initFlutter();
+  // regsiter to tell hive work with pbject // register first and open second
+  Hive.registerAdapter(NoteModelAdapter());
+
+  await Hive.openBox(sectionsBox);
+
   runApp(const MyApp());
 }
 

@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
         elevation: 10,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         backgroundColor: AppColors.primaryColor,
-        onPressed: () {},
+        onPressed: () async {},
         child: const Icon(
           Icons.add,
           size: 28,

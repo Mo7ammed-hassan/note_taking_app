@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -7,6 +9,8 @@ import 'package:note_taking_app/core/utils/image_assets.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
+  static final firebaseAuth =
+      FirebaseAuth.instance.currentUser?.displayName ?? 'Unknown user';
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class CustomHomeAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Welcome, John !',
+              'Welcome, $firebaseAuth !',
               style: AppTextStyles.textStyle14Bold
                   .copyWith(color: const Color(0xffB6B0D9)),
             ),

@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:note_taking_app/core/helper/services_locator.dart';
+import 'package:note_taking_app/features/auth/domain/use_cases/sign_in.dart';
+import 'package:note_taking_app/features/auth/domain/use_cases/sign_up.dart';
+import 'package:note_taking_app/features/auth/persentation/manager/cubit/auth_cubit.dart';
+import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp.dart';
+import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:note_taking_app/features/home/presentation/views/home_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/personal_note_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
@@ -48,7 +55,13 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
-        child: const LoginView(),
+        child: BlocProvider(
+          create: (context) => AuthCubit(
+            gitIt<SignInUseCase>(),
+            gitIt<SignUpUseCase>(),
+          ),
+          child: const LoginView(),
+        ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(
@@ -66,7 +79,13 @@ final GoRouter router = GoRouter(
       path: '/register',
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
-        child: const RegisterView(),
+        child: BlocProvider(
+          create: (context) => AuthCubit(
+            gitIt<SignInUseCase>(),
+            gitIt<SignUpUseCase>(),
+          ),
+          child: const RegisterView(),
+        ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) =>
             SlideTransition(
           position: animation.drive(
@@ -84,7 +103,12 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
-        child: const HomeView(),
+        child: BlocProvider(
+          create: (context) => HomeCubit(
+            gitIt<HomeUseCaseImpl>(),
+          ),
+          child: const HomeView(),
+        ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(

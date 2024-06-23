@@ -10,7 +10,7 @@ import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp
 final gitIt = GetIt.instance;
 
 void setupDependencies() {
-  // Register the AuthRepository as a singleton
+  // Register the AuthRepository as a lazy singleton
   gitIt.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl());
 
   // Register the use cases with the AuthRepository singleton
@@ -21,6 +21,7 @@ void setupDependencies() {
     () => SignUpUseCase(gitIt<AuthRepository>()),
   );
 
+  // Register HomeUseCaseImpl with dependencies
   gitIt.registerSingleton<HomeUseCaseImpl>(
     HomeUseCaseImpl(
       HomeRepoImpl(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:note_taking_app/core/helper/bloc_observer.dart';
 import 'package:note_taking_app/core/helper/route.dart';
 import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
@@ -20,11 +21,16 @@ Future<void> main() async {
     androidProvider: AndroidProvider.debug,
     appleProvider: AppleProvider.appAttest,
   );
+  // --call Singleton--
   setupDependencies();
+  // --Init Hive--
   await Hive.initFlutter();
+  // --Rigester NotemModel--
   Hive.registerAdapter(NoteModelAdapter());
+  // --Open Sections Box--
   await Hive.openBox(sectionsBox);
-
+  // --call BlocObserver--
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 

@@ -10,14 +10,14 @@ class PersonalNotesCardGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MasonryGridView.builder(
       padding: EdgeInsets.zero,
-      itemCount: noteList.length,
+      itemCount: notesList.length,
       crossAxisSpacing: 3,
       gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
       itemBuilder: (context, index) => CustomNoteCard(
-        title: noteList[index].title,
-        content: noteList[index].content!,
+        title: notesList[index].title,
+        content: notesList[index].content!,
       ),
     );
   }

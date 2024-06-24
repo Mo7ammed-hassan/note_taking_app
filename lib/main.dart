@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/helper/bloc_observer.dart';
-import 'package:note_taking_app/core/helper/open_boxes.dart';
+import 'package:note_taking_app/core/helper/open_multi_boxes.dart';
 import 'package:note_taking_app/core/helper/route.dart';
 import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
@@ -31,13 +31,11 @@ Future<void> main() async {
   // Open the general box
   await Hive.openBox<String>(sectionsBox);
 
-  // tester
-  await Hive.openBox<NoteModel>('test');
+  // Open the notes boxes
+  await openNotesBoxes();
 
   // Set Bloc observer for debugging
   Bloc.observer = MyBlocObserver();
-
-  // تعريف متغير لحالة الصندوق المختار
 
   runApp(const MyApp());
 }

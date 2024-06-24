@@ -1,7 +1,7 @@
 import 'package:note_taking_app/core/models/note_card_item_model.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 
-List<NoteCardItemModel> noteList = const [
+List<NoteCardItemModel> notesList = const [
   NoteCardItemModel(
     title: 'Cerebral palsy sport',
     content:

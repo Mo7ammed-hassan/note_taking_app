@@ -1,3 +1,4 @@
+import 'package:hive_flutter/hive_flutter.dart';
 
 class SectionsModel {
   final String title;
@@ -6,7 +7,7 @@ class SectionsModel {
 
   SectionsModel({required this.title, required this.files, required this.size});
 
-  factory SectionsModel.fromJson(var box, String title) {
-    return SectionsModel(title: title, files: box.length, size: box.length);
+  factory SectionsModel.fromJson(Box box) {
+    return SectionsModel(title: box.name, files: box.length, size: box.length);
   }
 }

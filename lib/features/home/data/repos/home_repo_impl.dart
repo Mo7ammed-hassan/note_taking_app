@@ -17,6 +17,7 @@ class HomeRepoImpl extends HomeRepo {
 
       List<String> boxSections =
           await homeLocalDataSource.addNewSection(boxName: boxName);
+
       return Right(boxSections);
     } catch (e) {
       return Left(

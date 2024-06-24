@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/helper/bloc_observer.dart';
+import 'package:note_taking_app/core/helper/open_boxes.dart';
 import 'package:note_taking_app/core/helper/route.dart';
 import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
@@ -13,22 +14,31 @@ import 'package:note_taking_app/features/home/data/models/note_model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
   await FirebaseAppCheck.instance.activate(
     webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
     androidProvider: AndroidProvider.debug,
     appleProvider: AppleProvider.appAttest,
   );
-  // --call Singleton--
+  // Initialize dependencies
   setupDependencies();
-  // --Init Hive--
+
+  // Initialize Hive for Flutter
   await Hive.initFlutter();
-  // --Rigester NotemModel--
   Hive.registerAdapter(NoteModelAdapter());
-  // --Open Sections Box--
-  await Hive.openBox(sectionsBox);
-  // --call BlocObserver--
+
+  // Open the general box
+  await Hive.openBox<String>(sectionsBox);
+
+  // tester
+  await Hive.openBox<NoteModel>('test');
+
+  // Set Bloc observer for debugging
   Bloc.observer = MyBlocObserver();
+
+  // تعريف متغير لحالة الصندوق المختار
+
   runApp(const MyApp());
 }
 

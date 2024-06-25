@@ -19,7 +19,7 @@ final class AddNoteFailure extends NotesState {
 }
 
 final class DeleteNoteSuccess extends NotesState {
-  final List<NotesEntity> notes;
+  List<NotesEntity> notes = [];
 
   DeleteNoteSuccess({required this.notes});
 }
@@ -31,7 +31,7 @@ final class DeleteNoteFailure extends NotesState {
 }
 
 final class EditNoteSuccess extends NotesState {
-  final List<NotesEntity> notes;
+  List<NotesEntity> notes = [];
 
   EditNoteSuccess({required this.notes});
 }
@@ -40,4 +40,16 @@ final class EditNoteFailure extends NotesState {
   final String error;
 
   EditNoteFailure({required this.error});
+}
+
+final class GetAllNotesSuccess extends NotesState {
+  List<NotesEntity> notes = [];
+
+  GetAllNotesSuccess({required this.notes});
+}
+
+final class GetAllNotesFailure extends NotesState {
+  final String error;
+
+  GetAllNotesFailure({required this.error});
 }

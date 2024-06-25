@@ -15,8 +15,13 @@ abstract class NotesLocalDataSources {
     required String content,
   });
   // DELETE NOTE--
-  Future<void> deleteNote({required int index, required String boxName});
+  Future<void> deleteNote({
+    required int index,
+    required String boxName,
+  });
 
 // --GET All NOTES--
-  List<NotesEntity> getAllNotes({required String boxName});
+  List<NotesEntity> getAllNotes({
+    required String boxName,
+  });
 }

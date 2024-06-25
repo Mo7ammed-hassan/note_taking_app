@@ -25,7 +25,10 @@ class NotesUseCasesImpl extends NotesUseCases {
   @override
   Future<Either<Failure, List<NotesEntity>>> callDeleteNote(
       {required int index, required String boxName}) async {
-    return await notesRepo.deleteNote(boxName: boxName, index: index);
+    return await notesRepo.deleteNote(
+      boxName: boxName,
+      index: index,
+    );
   }
 
   @override
@@ -44,8 +47,7 @@ class NotesUseCasesImpl extends NotesUseCases {
   }
 
   @override
-  Future<Either<Failure, List<NotesEntity>>> callGetNotes(
-      {required String boxName}) async {
-    return await notesRepo.getNotes(boxName: boxName);
+  Either<Failure, List<NotesEntity>> callGetNotes({required String boxName}) {
+    return notesRepo.getNotes(boxName: boxName);
   }
 }

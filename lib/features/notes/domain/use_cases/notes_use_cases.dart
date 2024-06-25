@@ -23,6 +23,5 @@ abstract class NotesUseCases {
   });
 
   // --CALL GET NOTES
-  Future<Either<Failure, List<NotesEntity>>> callGetNotes(
-      {required String boxName});
+  Either<Failure, List<NotesEntity>> callGetNotes({required String boxName});
 }

@@ -58,4 +58,15 @@ class NotesCubit extends Cubit<NotesState> {
       emit(DeleteNoteSuccess(notes: notes));
     });
   }
+
+  // GET ALL NOTES--
+  void getAllNotes({required String boxName}) {
+    emit(NotesLoading());
+    var result = notesUseCasesImpl.callGetNotes(boxName: boxName);
+    result.fold((failure) {
+      emit(GetAllNotesFailure(error: 'Error getting all notes: $failure'));
+    }, (notes) {
+      emit(GetAllNotesSuccess(notes: notes));
+    });
+  }
 }

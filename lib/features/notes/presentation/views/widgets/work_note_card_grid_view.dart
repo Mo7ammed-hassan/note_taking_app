@@ -10,7 +10,7 @@ class WorkNoteCardGridView extends StatelessWidget {
   const WorkNoteCardGridView({
     super.key,
   });
-  static NoteService noteService = NoteService(boxName: workSection);
+
   @override
   Widget build(BuildContext context) {
     List<NotesEntity> notes = [];

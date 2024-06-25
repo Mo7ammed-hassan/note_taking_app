@@ -1,6 +1,5 @@
 part of 'home_cubit.dart';
 
-@immutable
 sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
@@ -13,7 +12,7 @@ final class AddNewSectionSuccess extends HomeState {
 }
 
 final class FetchNotesSuccess extends HomeState {
-  final List<NoteModel> notes;
+  final List<NotesEntity> notes;
 
   FetchNotesSuccess({required this.notes});
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:note_taking_app/core/helper/helper_list.dart';
+import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_card.dart';
 
 class PersonalNotesCardGridView extends StatelessWidget {
@@ -8,6 +9,7 @@ class PersonalNotesCardGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var notesList = BlocProvider.of<HomeCubit>(context).notesList;
     return MasonryGridView.builder(
       padding: EdgeInsets.zero,
       itemCount: notesList.length,
@@ -17,7 +19,7 @@ class PersonalNotesCardGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) => CustomNoteCard(
         title: notesList[index].title,
-        content: notesList[index].content!,
+        content: notesList[index].content,
       ),
     );
   }

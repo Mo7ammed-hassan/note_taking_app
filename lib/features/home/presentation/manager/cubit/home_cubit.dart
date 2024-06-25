@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:note_taking_app/features/home/data/models/note_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 part 'home_state.dart';
 
@@ -10,7 +9,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   final HomeUseCaseImpl homeUseCaseImpl;
   List<String> sectionsList = [];
-  List<NoteModel> notesList = [];
+  List<NotesEntity> notesList = [];
 
   // --ADD NEW SECTION--
   Future<void> addNewSection({required String boxName}) async {

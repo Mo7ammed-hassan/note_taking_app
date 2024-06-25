@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:note_taking_app/features/home/data/models/note_model.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 abstract class HomeRepo {
   //fetch notes
-  Either<Failure, List<NoteModel>> fetchNotes({required String boxNote});
+  Either<Failure, List<NotesEntity>> fetchNotes({required String boxNote});
 
   // add new section
   Future<Either<Failure, List<String>>> addNewSection(

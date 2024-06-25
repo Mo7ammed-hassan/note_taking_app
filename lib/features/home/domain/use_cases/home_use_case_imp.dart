@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:note_taking_app/features/home/data/models/note_model.dart';
 import 'package:note_taking_app/features/home/domain/repos/home_repo.dart';
 import 'package:note_taking_app/features/home/domain/use_cases/home_use_cases.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 class HomeUseCaseImpl extends HomeUseCases {
   final HomeRepo homeRepo;
@@ -9,7 +9,7 @@ class HomeUseCaseImpl extends HomeUseCases {
   HomeUseCaseImpl(this.homeRepo);
 
   @override
-  Either<Failure, List<NoteModel>> callFetchNotes({required String boxNote}) {
+  Either<Failure, List<NotesEntity>> callFetchNotes({required String boxNote}) {
     return homeRepo.fetchNotes(boxNote: boxNote);
   }
 

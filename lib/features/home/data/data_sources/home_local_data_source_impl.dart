@@ -1,8 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/utils/constants/boxes.dart';
 import 'package:note_taking_app/features/home/data/data_sources/home_local_data_source.dart';
-import 'package:note_taking_app/features/home/data/models/note_model.dart';
 import 'package:note_taking_app/features/home/data/models/sections_model.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   @override
@@ -14,7 +16,7 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
     // Box<NoteModel> newSection = await Hive.openBox<NoteModel>(boxName);
 
     // test..
-    Box<NoteModel> newSection = Hive.box<NoteModel>('test');
+    Box<NotesEntity> newSection = Hive.box<NotesEntity>('test');
 
     // create List of new section
     List<SectionsModel> sectiosModel = [];
@@ -29,9 +31,9 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   }
 
   @override
-  List<NoteModel> fetchNotes({required String boxNote}) {
+  List<NotesEntity> fetchNotes({required String boxNote}) {
     // Select which notes to fetch or box
-    Box<NoteModel> boxNotes = Hive.box<NoteModel>(boxNote);
+    Box<NotesEntity> boxNotes = Hive.box<NotesEntity>(boxNote);
 
     return boxNotes.values.toList();
   }

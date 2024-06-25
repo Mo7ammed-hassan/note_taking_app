@@ -10,7 +10,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:note_taking_app/core/utils/constants/boxes.dart';
 
 import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:note_taking_app/features/home/data/models/note_model.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,7 @@ Future<void> main() async {
 
   // Initialize Hive for Flutter
   await Hive.initFlutter();
-  Hive.registerAdapter(NoteModelAdapter());
+  Hive.registerAdapter(NotesEntityAdapter());
 
   // Open the general box
   await Hive.openBox<String>(sectionsBox);

@@ -1,6 +1,6 @@
-import 'package:note_taking_app/features/home/data/models/note_model.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 abstract class HomeLocalDataSource {
  Future< List<String> >addNewSection({required String boxName});
-  List<NoteModel> fetchNotes({required String boxNote});
+  List<NotesEntity> fetchNotes({required String boxNote});
 }

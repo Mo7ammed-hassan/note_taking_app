@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 import 'package:note_taking_app/core/services/note_services.dart';
 import 'package:note_taking_app/features/notes/data/data_sources/notes_local_data_sources.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 class NotesLocalDataSourcesImp extends NotesLocalDataSources {
   final NoteService noteService;
@@ -46,5 +47,10 @@ class NotesLocalDataSourcesImp extends NotesLocalDataSources {
     } on Exception catch (e) {
       print('Error editing : $e');
     }
+  }
+
+  @override
+  List<NotesEntity> getAllNotes({required String boxName}) {
+    return noteService.getAllNotes(boxName: boxName);
   }
 }

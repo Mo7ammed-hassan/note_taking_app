@@ -21,4 +21,6 @@ abstract class NotesRepo {
     required int index,
     required String boxName,
   });
+
+  Either<Failure, List<NotesEntity>> getNotes({required String boxName});
 }

@@ -21,4 +21,8 @@ abstract class NotesUseCases {
     required int index,
     required String boxName,
   });
+
+  // --CALL GET NOTES
+  Future<Either<Failure, List<NotesEntity>>> callGetNotes(
+      {required String boxName});
 }

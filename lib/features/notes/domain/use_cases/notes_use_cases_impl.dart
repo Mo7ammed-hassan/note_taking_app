@@ -42,4 +42,10 @@ class NotesUseCasesImpl extends NotesUseCases {
       boxName: boxName,
     );
   }
+
+  @override
+  Future<Either<Failure, List<NotesEntity>>> callGetNotes(
+      {required String boxName}) async {
+    return await notesRepo.getNotes(boxName: boxName);
+  }
 }

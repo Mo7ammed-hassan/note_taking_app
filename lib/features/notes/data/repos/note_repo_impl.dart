@@ -65,4 +65,15 @@ class NoteRepoImpl extends NotesRepo {
       return Left(Failure(error: 'Failed to delete: $e'));
     }
   }
+
+  @override
+  Either<Failure, List<NotesEntity>> getNotes({required String boxName}) {
+    try {
+      List<NotesEntity> notes =
+          notesLocalDataSourcesImp.getAllNotes(boxName: boxName);
+      return Right(notes);
+    } on Exception catch (e) {
+      return Left(Failure(error: 'Failed to get notes: $e'));
+    }
+  }
 }

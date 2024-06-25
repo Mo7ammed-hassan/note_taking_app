@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 class CustomNoteCard extends StatelessWidget {
-  final String title;
-  final String content;
-
-  const CustomNoteCard({super.key, required this.title, required this.content});
+  final NotesEntity note;
+  final int index;
+  const CustomNoteCard({
+    super.key,
+    required this.note,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class CustomNoteCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              title,
+              note.title,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -28,7 +32,7 @@ class CustomNoteCard extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              content,
+              note.content,
               maxLines: 11,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(

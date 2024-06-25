@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/services/note_services.dart';
@@ -25,8 +24,8 @@ class NoteRepoImpl extends NotesRepo {
         title: title,
         content: content,
       );
-      // List<NotesEntity> notes = Hive.box<NotesEntity>(boxName).values.toList();
-      // TODO: we are HERRRRRRRRRRRRRRRRRRRRRRR
+      //List<NotesEntity> notes = Hive.box<NotesEntity>(boxName).values.toList();
+      //TODO: we are HERRRRRRRRRRRRRRRRRRRRRRR
       List<NotesEntity> notes =
           NoteService(boxName: boxName).getAllNotes(boxName: boxName);
       return Right(notes);

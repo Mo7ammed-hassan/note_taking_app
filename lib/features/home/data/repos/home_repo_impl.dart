@@ -33,7 +33,8 @@ class HomeRepoImpl extends HomeRepo {
         return Left(Failure(error: 'Box name cannot be empty'));
       }
 
-      List<NotesEntity> notes = homeLocalDataSource.fetchNotes(boxNote: boxNote);
+      List<NotesEntity> notes =
+          homeLocalDataSource.fetchNotes(boxNote: boxNote);
       return Right(notes);
     } catch (e) {
       return Left(

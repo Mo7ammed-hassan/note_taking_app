@@ -42,9 +42,7 @@ class CustomAddNoteAppBar extends StatelessWidget {
               icon: const Icon(
                 Icons.save_alt,
               ),
-              onPressed: () {
-                // Save action
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: const Icon(
@@ -54,8 +52,6 @@ class CustomAddNoteAppBar extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-
-            // search title
           ],
         )
       ],

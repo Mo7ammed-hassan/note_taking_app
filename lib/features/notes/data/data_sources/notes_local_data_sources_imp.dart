@@ -3,6 +3,9 @@ import 'package:note_taking_app/core/services/note_services.dart';
 import 'package:note_taking_app/features/notes/data/data_sources/notes_local_data_sources.dart';
 
 class NotesLocalDataSourcesImp extends NotesLocalDataSources {
+  final NoteService noteService;
+
+  NotesLocalDataSourcesImp({required this.noteService});
   @override
   Future<void> addNewNote({
     required String boxName,

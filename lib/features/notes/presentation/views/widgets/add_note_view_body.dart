@@ -17,6 +17,7 @@ class AddNoteViewBody extends StatelessWidget {
         Expanded(
           child: NoteWritingSection(),
         ),
+        
       ],
     );
   }

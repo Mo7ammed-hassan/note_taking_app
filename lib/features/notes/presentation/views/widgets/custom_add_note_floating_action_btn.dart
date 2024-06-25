@@ -15,7 +15,6 @@ class CustomAddNoteFloatingActionBtn extends StatelessWidget {
       backgroundColor: AppColors.primaryColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       onPressed: () {
-        //GoRouter.of(context).push('/addNote');
         Navigator.push(
           context,
           MaterialPageRoute(

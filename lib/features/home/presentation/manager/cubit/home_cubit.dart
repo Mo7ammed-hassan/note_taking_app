@@ -12,10 +12,10 @@ class HomeCubit extends Cubit<HomeState> {
   List<NotesEntity> notesList = [];
 
   // --ADD NEW SECTION--
-  Future<void> addNewSection({required String boxName}) async {
+  Future<void> addNewSection({required String title}) async {
     emit(HomeLoading());
     // trigger add new section method
-    var sections = await homeUseCaseImpl.callAddNewSection(boxName: boxName);
+    var sections = await homeUseCaseImpl.callAddNewSection(title: title);
     sections.fold(
       (failure) {
         emit(HomeFailure(error: failure.error));

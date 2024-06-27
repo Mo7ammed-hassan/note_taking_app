@@ -15,7 +15,7 @@ class HomeUseCaseImpl extends HomeUseCases {
 
   @override
   Future<Either<Failure, List<String>>> callAddNewSection(
-      {required String boxName}) async {
-    return await homeRepo.addNewSection(boxName: boxName);
+      {required String title}) async {
+    return await homeRepo.addNewSection(title: title);
   }
 }

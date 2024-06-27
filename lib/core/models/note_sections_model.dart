@@ -1,6 +1,9 @@
 class NoteSectionsModel {
   final String boxName;
-  final String route;
+   final String route;
 
- const NoteSectionsModel({required this.boxName, required this.route});
+  const NoteSectionsModel({
+    required this.boxName,
+     required this.route,
+  });
 }

@@ -5,5 +5,5 @@ import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart'
 abstract class HomeUseCases {
   Either<Failure, List<NotesEntity>> callFetchNotes({required String boxNote});
   Future<Either<Failure, List<String>>> callAddNewSection(
-      {required String boxName});
+      {required String title});
 }

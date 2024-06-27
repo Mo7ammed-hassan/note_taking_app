@@ -7,7 +7,7 @@ abstract class HomeRepo {
 
   // add new section
   Future<Either<Failure, List<String>>> addNewSection(
-      {required String boxName});
+      {required String title});
 }
 
 class Failure {

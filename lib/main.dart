@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/helper/bloc_observer.dart';
 import 'package:note_taking_app/core/helper/open_multi_boxes.dart';
-import 'package:note_taking_app/core/routes/route.dart';
+import 'package:note_taking_app/core/routes/routes.dart';
 import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';

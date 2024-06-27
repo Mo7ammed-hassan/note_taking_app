@@ -9,14 +9,14 @@ class HomeRepoImpl extends HomeRepo {
   HomeRepoImpl({required this.homeLocalDataSource});
   @override
   Future<Either<Failure, List<String>>> addNewSection(
-      {required String boxName}) async {
+      {required String title}) async {
     try {
-      if (boxName.isEmpty) {
+      if (title.isEmpty) {
         return Left(Failure(error: 'Box name cannot be empty'));
       }
 
       List<String> boxSections =
-          await homeLocalDataSource.addNewSection(boxName: boxName);
+          await homeLocalDataSource.addNewSection(boxName: title);
 
       return Right(boxSections);
     } catch (e) {

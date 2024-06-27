@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/functions/add_new_section_show_dialog.dart';
 import 'package:note_taking_app/core/utils/widgets/change_floating_action_btn_location.dart';
+import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:note_taking_app/features/home/presentation/views/custom_btn_app_bar.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/home_view_body.dart';
 
@@ -22,7 +24,7 @@ class HomeView extends StatelessWidget {
         backgroundColor: AppColors.primaryColor,
         onPressed: () async {
           // create a new section
-          await addNewSectionShowDialog(context);
+          addNewSectionShowDialog(context, BlocProvider.of<HomeCubit>(context));
         },
         child: const Icon(
           Icons.add,

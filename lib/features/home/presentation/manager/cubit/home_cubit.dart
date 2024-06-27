@@ -22,7 +22,39 @@ class HomeCubit extends Cubit<HomeState> {
       },
       (sections) {
         sectionsList = sections;
-        emit(AddNewSectionSuccess(sections: sections));
+        emit(AddNewSectionSuccess(sections: sectionsList));
+      },
+    );
+  }
+
+  //--DELETE SECTIONS--
+  Future<void> deleteSection({required int index}) async {
+    emit(HomeLoading());
+    // trigger delete section method
+    var sections = await homeUseCaseImpl.callDeleteSection(index: index);
+    sections.fold(
+      (failure) {
+        emit(HomeFailure(error: failure.error));
+      },
+      (sections) {
+        sectionsList = sections;
+        emit(DeleteSectionSuccess(sections: sectionsList));
+      },
+    );
+  }
+
+  // --FETCH SECTIONS--
+  void fetchSections() {
+    emit(HomeLoading());
+    // trigger fetch sections method
+    var sections = homeUseCaseImpl.callFetchSections();
+    sections.fold(
+      (failure) {
+        emit(HomeFailure(error: failure.error));
+      },
+      (sections) {
+        sectionsList = sections;
+        emit(FetchSectionsSuccess(sections: sectionsList));
       },
     );
   }

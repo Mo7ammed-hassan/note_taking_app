@@ -6,23 +6,37 @@ import 'package:note_taking_app/features/home/data/data_sources/home_local_data_
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
+  //--Add Sections--
   @override
   Future<List<String>> addNewSection({required String boxName}) async {
     // Access section box
     Box<String> boxSections = Hive.box<String>(sectionsBox);
 
-    //Open box for new section
-    //Box<NoteModel> newSection = await Hive.openBox<NoteModel>(boxName);
-    // if (newSection.isOpen) {
-    // Add new section to sectionsBox
     await boxSections.add(boxName);
 
     print('Success: Added new section $boxName');
-    //}
-    // Return updated list of sections
+
     return boxSections.values.toList();
   }
 
+  // --Fetch Sections--
+  @override
+  List<String> fetchSections() {
+    Box<String> box = Hive.box<String>(sectionsBox);
+    return box.values.toList();
+  }
+
+  // --Delete Sections--
+  @override
+  Future<void> deleteSection({required int index}) async {
+    Box box = Hive.box<String>(sectionsBox);
+    var section = box.getAt(index);
+    if (section != null) {
+      await box.deleteAt(index);
+    }
+  }
+
+  // --Fetch Notes--
   @override
   List<NotesEntity> fetchNotes({required String boxNote}) {
     // Select which notes to fetch or box

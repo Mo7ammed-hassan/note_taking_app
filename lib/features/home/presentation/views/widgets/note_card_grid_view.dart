@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:note_taking_app/core/utils/constants/note_list.dart';
 import 'package:note_taking_app/core/utils/constants/note_sections_list.dart';
 import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/note_card_item.dart';
@@ -14,8 +13,9 @@ class NoteCardGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> notess = BlocProvider.of<HomeCubit>(context).sectionsList;
     return SliverGrid.builder(
-      itemCount: noteList.length,
+      itemCount: notess.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 18,
@@ -31,7 +31,8 @@ class NoteCardGridView extends StatelessWidget {
             GoRouter.of(context).push(noteSectionsList[index].route);
           },
           child: NoteCardItem(
-            noteModel: noteList[index],
+            //noteModel: noteList[index],
+            titlee: notess[index],
           ),
         );
       },

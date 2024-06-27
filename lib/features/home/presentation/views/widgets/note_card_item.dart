@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:note_taking_app/core/models/note_card_item_model.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
+import 'package:note_taking_app/core/utils/image_assets.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_container.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/note_card_image.dart';
 
 class NoteCardItem extends StatelessWidget {
   const NoteCardItem({
     super.key,
-    required this.noteModel,
+    //required this.noteModel,
+    required this.titlee,
   });
-  final NoteCardItemModel noteModel;
+  //final NoteCardItemModel noteModel;
+  final String titlee;
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -28,20 +30,23 @@ class NoteCardItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NoteCardItemImage(
-                  image: noteModel.image,
+                const NoteCardItemImage(
+                  //image: noteModel.image,
+                  image: Assets.imagesAcademic,
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  noteModel.title,
+                  titlee,
                   style: AppTextStyles.textStyle16ExtraBold,
                 ),
                 Text(
-                  '${noteModel.files} Files',
+                  //'${noteModel.files} Files',
+                  '200',
                   style: AppTextStyles.textStyle16SemiBold,
                 ),
                 Text(
-                  'Size: ${noteModel.files} GB',
+                  // 'Size: ${noteModel.files} GB',
+                  '200',
                   style: AppTextStyles.textStyle10Medium,
                 ),
               ],

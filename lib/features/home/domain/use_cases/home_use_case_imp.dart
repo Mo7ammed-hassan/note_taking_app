@@ -8,14 +8,29 @@ class HomeUseCaseImpl extends HomeUseCases {
 
   HomeUseCaseImpl(this.homeRepo);
 
-  @override
-  Either<Failure, List<NotesEntity>> callFetchNotes({required String boxNote}) {
-    return homeRepo.fetchNotes(boxNote: boxNote);
-  }
-
+  // --Call Add New Section--
   @override
   Future<Either<Failure, List<String>>> callAddNewSection(
       {required String title}) async {
     return await homeRepo.addNewSection(title: title);
+  }
+
+  // --Call Delete Section--
+  @override
+  Future<Either<Failure, List<String>>> callDeleteSection(
+      {required int index}) {
+    return homeRepo.deleteSection(index: index);
+  }
+
+  // --Call Fetch Sections--
+  @override
+  Either<Failure, List<String>> callFetchSections() {
+    return homeRepo.fetchSections();
+  }
+
+  // --Call Fetch Notes--
+  @override
+  Either<Failure, List<NotesEntity>> callFetchNotes({required String boxNote}) {
+    return homeRepo.fetchNotes(boxNote: boxNote);
   }
 }

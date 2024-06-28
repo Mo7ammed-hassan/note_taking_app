@@ -12,18 +12,6 @@ final class AddNewSectionSuccess extends HomeState {
   AddNewSectionSuccess({required this.sections});
 }
 
-final class FetchNotesSuccess extends HomeState {
-  final List<NotesEntity> notes;
-
-  FetchNotesSuccess({required this.notes});
-}
-
-final class HomeFailure extends HomeState {
-  final String error;
-
-  HomeFailure({required this.error});
-}
-
 final class FetchSectionsSuccess extends HomeState {
   final List<String> sections;
 
@@ -34,4 +22,16 @@ final class DeleteSectionSuccess extends HomeState {
   final List<String> sections;
 
   DeleteSectionSuccess({required this.sections});
+}
+
+final class FetchNotesSuccess extends HomeState {
+  final List<NotesEntity> notes;
+
+  FetchNotesSuccess({required this.notes});
+}
+
+final class HomeFailure extends HomeState {
+  final String error;
+
+  HomeFailure({required this.error});
 }

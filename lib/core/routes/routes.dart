@@ -106,7 +106,7 @@ final GoRouter router = GoRouter(
         child: BlocProvider(
           create: (context) => HomeCubit(
             gitIt<HomeUseCaseImpl>(),
-          ),
+          )..fetchSections(),
           child: const HomeView(),
         ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {

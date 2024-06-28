@@ -37,8 +37,10 @@ Future<dynamic> addNewSectionShowDialog(
             TextButton(
               onPressed: () {
                 if (fromKey.currentState!.validate()) {
-                  homeCubit.addNewSection(title: controller.text);
-                  Navigator.of(context).pop();
+                  homeCubit.addNewSection(title: controller.text).then((value) {
+                    homeCubit.fetchSections();
+                    Navigator.of(context).pop();
+                  });
                 }
               },
               child: Text(

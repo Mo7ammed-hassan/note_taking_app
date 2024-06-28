@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_container.dart';
-import 'package:note_taking_app/features/home/presentation/views/widgets/note_card_image.dart';
+import 'package:note_taking_app/features/home/presentation/views/widgets/section_card_image.dart';
 
 class NoteCardItem extends StatelessWidget {
   const NoteCardItem({
     super.key,
-    //required this.noteModel,
     required this.titlee,
   });
-  //final NoteCardItemModel noteModel;
+
   final String titlee;
   @override
   Widget build(BuildContext context) {

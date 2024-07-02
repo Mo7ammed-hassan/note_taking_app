@@ -6,17 +6,19 @@ import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/core/utils/image_assets.dart';
 import 'package:note_taking_app/features/notes/presentation/manager/cubit/notes_cubit.dart';
 
-class CustomAddNoteAppBar extends StatelessWidget {
-  const CustomAddNoteAppBar({
+class CustomEditNoteAppBar extends StatelessWidget {
+  const CustomEditNoteAppBar({
     super.key,
     required this.title,
     required this.titleController,
     required this.noteController,
     required this.boxName,
+    required this.index,
   });
   final String title, boxName;
   final TextEditingController titleController;
   final TextEditingController noteController;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -31,10 +33,11 @@ class CustomAddNoteAppBar extends StatelessWidget {
                 if (titleController.text.isNotEmpty ||
                     noteController.text.isNotEmpty) {
                   BlocProvider.of<NotesCubit>(context)
-                      .addNewNote(
+                      .editNote(
                         title: titleController.text,
                         content: noteController.text,
                         boxName: boxName,
+                        index: index,
                       )
                       .then((value) => GoRouter.of(context).pop());
                 } else {
@@ -68,10 +71,11 @@ class CustomAddNoteAppBar extends StatelessWidget {
                 if (titleController.text.isNotEmpty ||
                     noteController.text.isNotEmpty) {
                   BlocProvider.of<NotesCubit>(context)
-                      .addNewNote(
+                      .editNote(
                         title: titleController.text,
                         content: noteController.text,
                         boxName: boxName,
+                        index: index,
                       )
                       .then((value) => GoRouter.of(context).pop());
                 } else {

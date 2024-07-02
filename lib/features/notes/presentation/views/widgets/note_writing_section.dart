@@ -3,8 +3,11 @@ import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 
 class NoteWritingSection extends StatelessWidget {
-  const NoteWritingSection(
-      {super.key, required this.titleController, required this.noteController});
+  const NoteWritingSection({
+    super.key,
+    required this.titleController,
+    required this.noteController,
+  });
   final TextEditingController titleController;
   final TextEditingController noteController;
   @override

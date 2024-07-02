@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:go_router/go_router.dart';
 import 'package:note_taking_app/core/utils/functions/delete_notes_show_dialog.dart';
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 import 'package:note_taking_app/features/notes/presentation/manager/cubit/notes_cubit.dart';
-import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_card.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/edit_note_view.dart';
 
@@ -41,7 +38,11 @@ class PersonalNotesCardGridView extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EditNoteView(boxName: section,index: index),
+                  builder: (context) => EditNoteView(
+                    boxName: section,
+                    index: index,
+                    notesEntity: notesList[index],
+                  ),
                 ),
               );
             },

@@ -32,7 +32,6 @@ class _PageViewAndSmothIndicatorState extends State<PageViewAndSmothIndicator> {
               CustomPageView(),
               CustomPageView(),
               CustomPageView(),
-              CustomPageView(),
             ],
           ),
         ),

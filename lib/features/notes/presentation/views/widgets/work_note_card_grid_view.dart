@@ -6,6 +6,7 @@ import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart'
 import 'package:note_taking_app/features/notes/presentation/manager/cubit/notes_cubit.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/add_new_note_card.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_card.dart';
+import 'package:note_taking_app/features/notes/presentation/views/widgets/edit_note_view.dart';
 
 class WorkNoteCardGridView extends StatelessWidget {
   const WorkNoteCardGridView({
@@ -38,6 +39,18 @@ class WorkNoteCardGridView extends StatelessWidget {
                   boxName: section,
                 )
               : CustomNoteCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditNoteView(
+                          boxName: section,
+                          index: index-1,
+                          notesEntity: notesList[index - 1],
+                        ),
+                      ),
+                    );
+                  },
                   onLongPress: () {
                     deleteNoteShowDialog(
                       index: index - 1, // adjust index for CustomNoteCard

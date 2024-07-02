@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:note_taking_app/core/utils/constants/boxes.dart';
 
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_note_app_bar.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/work_note_card_grid_view.dart';
 
 class WorkNoteViewBody extends StatelessWidget {
-  const WorkNoteViewBody({super.key});
+  const WorkNoteViewBody({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
@@ -12,7 +16,7 @@ class WorkNoteViewBody extends StatelessWidget {
         children: [
           // custom note app bar
           CustomNoteAppBar(
-            title: 'Work',
+            title: workSection,
           ),
           SizedBox(
             height: 8,
@@ -21,7 +25,9 @@ class WorkNoteViewBody extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
-              child: WorkNoteCardGridView(),
+              child: WorkNoteCardGridView(
+                section: workSection,
+              ),
             ),
           ),
         ],

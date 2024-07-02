@@ -7,7 +7,7 @@ part 'notes_state.dart';
 class NotesCubit extends Cubit<NotesState> {
   final NotesUseCasesImpl notesUseCasesImpl;
   NotesCubit(this.notesUseCasesImpl) : super(NotesInitial());
-
+  List<NotesEntity> notes = [];
   // --ADD NEW NOTE--
   Future<void> addNewNote({
     required String title,
@@ -61,11 +61,11 @@ class NotesCubit extends Cubit<NotesState> {
 
   // GET ALL NOTES--
   void getAllNotes({required String boxName}) {
-    emit(NotesLoading());
     var result = notesUseCasesImpl.callGetNotes(boxName: boxName);
     result.fold((failure) {
       emit(GetAllNotesFailure(error: 'Error getting all notes: $failure'));
-    }, (notes) {
+    }, (notesList) {
+      notes = notesList;
       emit(GetAllNotesSuccess(notes: notes));
     });
   }

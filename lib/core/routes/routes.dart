@@ -5,11 +5,10 @@ import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/features/auth/domain/use_cases/sign_in.dart';
 import 'package:note_taking_app/features/auth/domain/use_cases/sign_up.dart';
 import 'package:note_taking_app/features/auth/persentation/manager/cubit/auth_cubit.dart';
-import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp.dart';
-import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:note_taking_app/features/home/presentation/views/home_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/academic_notes_view.dart';
+import 'package:note_taking_app/features/notes/presentation/views/others_notes_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/personal_note_view.dart';
-import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
 import 'package:note_taking_app/features/notes/presentation/views/work_note_view.dart';
 import 'package:note_taking_app/features/auth/persentation/views/register_view.dart';
 import 'package:note_taking_app/features/auth/persentation/views/login_view.dart';
@@ -103,12 +102,7 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
-        child: BlocProvider(
-          create: (context) => HomeCubit(
-            gitIt<HomeUseCaseImpl>(),
-          )..fetchSections(),
-          child: const HomeView(),
-        ),
+        child: const HomeView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(
@@ -161,11 +155,30 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/addNote',
+      path: '/academicNotes',
       pageBuilder: (context, state) => CustomTransitionPage(
         transitionDuration: const Duration(milliseconds: 450),
         key: state.pageKey,
-        child: const AddNoteView(),
+        child: const AcademicNotesView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SlideTransition(
+            position: animation.drive(
+              Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).chain(CurveTween(curve: Curves.linear)),
+            ),
+            child: child,
+          );
+        },
+      ),
+    ),
+    GoRoute(
+      path: '/othersNotes',
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: const Duration(milliseconds: 450),
+        key: state.pageKey,
+        child: const OthersNotesView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
             position: animation.drive(

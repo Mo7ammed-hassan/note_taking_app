@@ -7,19 +7,19 @@ final class HomeInitial extends HomeState {}
 final class HomeLoading extends HomeState {}
 
 final class AddNewSectionSuccess extends HomeState {
-  final List<String> sections;
+  final List<SectionsModel> sections;
 
   AddNewSectionSuccess({required this.sections});
 }
 
 final class FetchSectionsSuccess extends HomeState {
-  final List<String> sections;
+  final List<SectionsModel> sections;
 
   FetchSectionsSuccess({required this.sections});
 }
 
 final class DeleteSectionSuccess extends HomeState {
-  final List<String> sections;
+  final List<SectionsModel> sections;
 
   DeleteSectionSuccess({required this.sections});
 }

@@ -1,7 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_taking_app/core/utils/constants/boxes.dart';
 import 'package:note_taking_app/features/home/data/data_sources/home_local_data_source.dart';
+import 'package:note_taking_app/features/home/data/models/sections_model.dart';
 import 'package:note_taking_app/features/home/domain/repos/home_repo.dart';
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
@@ -12,15 +15,15 @@ class HomeRepoImpl extends HomeRepo {
 
   //--Add New Sections --
   @override
-  Future<Either<Failure, List<String>>> addNewSection(
-      {required String title}) async {
+  Future<Either<Failure, List<SectionsModel>>> addNewSection(
+      {required String boxName, required Uint8List image}) async {
     try {
-      if (title.isEmpty) {
+      if (boxName.isEmpty) {
         return Left(Failure(error: 'Box name cannot be empty'));
       }
 
-      List<String> boxSections =
-          await homeLocalDataSource.addNewSection(boxName: title);
+      List<SectionsModel> boxSections = await homeLocalDataSource.addNewSection(
+          boxName: boxName, image: image);
 
       return Right(boxSections);
     } catch (e) {
@@ -32,11 +35,12 @@ class HomeRepoImpl extends HomeRepo {
 
 // --Delete Sections--
   @override
-  Future<Either<Failure, List<String>>> deleteSection(
+  Future<Either<Failure, List<SectionsModel>>> deleteSection(
       {required int index}) async {
     try {
       await homeLocalDataSource.deleteSection(index: index);
-      List<String> sections = Hive.box<String>(sectionsBox).values.toList();
+      List<SectionsModel> sections =
+          Hive.box<SectionsModel>(sectionsBox).values.toList();
       return Right(sections);
     } on Exception catch (e) {
       return Left(Failure(error: 'Failed to delete: $e'));
@@ -45,10 +49,11 @@ class HomeRepoImpl extends HomeRepo {
 
 // --Fetch Sections--
   @override
-  Either<Failure, List<String>> fetchSections() {
+  Either<Failure, List<SectionsModel>> fetchSections() {
     try {
       homeLocalDataSource.fetchSections();
-      List<String> sections = Hive.box<String>(sectionsBox).values.toList();
+      List<SectionsModel> sections =
+          Hive.box<SectionsModel>(sectionsBox).values.toList();
       return Right(sections);
     } on Exception catch (e) {
       return Left(Failure(error: 'Failed to fetch: $e'));

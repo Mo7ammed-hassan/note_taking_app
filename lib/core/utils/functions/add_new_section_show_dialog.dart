@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
-import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
 
 Future<dynamic> addNewSectionShowDialog(
   BuildContext context,
-  HomeCubit homeCubit,
 ) {
   TextEditingController controller = TextEditingController();
   GlobalKey<FormState> fromKey = GlobalKey();
@@ -37,10 +35,9 @@ Future<dynamic> addNewSectionShowDialog(
             TextButton(
               onPressed: () {
                 if (fromKey.currentState!.validate()) {
-                  homeCubit.addNewSection(title: controller.text).then((value) {
-                    homeCubit.fetchSections();
-                    Navigator.of(context).pop();
-                  });
+                  // BlocProvider.of<HomeCubit>(context)
+                  //     .addNewSection(title: controller.text)
+                  //     .then((value) => Navigator.of(context).pop());
                 }
               },
               child: Text(

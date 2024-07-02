@@ -7,8 +7,10 @@ class CustomAddNoteFloatingActionBtn extends StatelessWidget {
   const CustomAddNoteFloatingActionBtn({
     super.key,
     required this.title,
+    required this.boxName,
   });
   final String title;
+  final String boxName;
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
@@ -18,7 +20,9 @@ class CustomAddNoteFloatingActionBtn extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const AddNoteView(),
+            builder: (context) => AddNoteView(
+              boxName: boxName,
+            ),
           ),
         );
       },

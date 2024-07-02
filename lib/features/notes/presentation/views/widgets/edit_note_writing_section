@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
 
-class NoteWritingSection extends StatelessWidget {
-  const NoteWritingSection(
+class EditNoteWritingSection extends StatelessWidget {
+  const EditNoteWritingSection(
       {super.key, required this.titleController, required this.noteController});
   final TextEditingController titleController;
   final TextEditingController noteController;
+  //final NotesEntity noteEntity;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -18,7 +19,7 @@ class NoteWritingSection extends StatelessWidget {
             controller: titleController,
             style: AppTextStyles.textStyle18Bold,
             decoration: InputDecoration(
-              hintText: 'Address',
+              hintText: noteEntity.title?? 'Address',
               hintStyle: AppTextStyles.textStyle18Bold,
               border: InputBorder.none,
             ),
@@ -38,7 +39,7 @@ class NoteWritingSection extends StatelessWidget {
               color: Colors.grey[700],
             ),
             decoration: InputDecoration(
-              hintText: 'Note',
+              hintText:noteEntity.note?? 'Note',
               hintStyle: TextStyle(
                 fontSize: 14,
                 color: Colors.grey[700],

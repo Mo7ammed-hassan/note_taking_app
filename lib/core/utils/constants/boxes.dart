@@ -1,5 +1,5 @@
 const String sectionsBox = 'sectionsBox';
-const String personalSection = 'personalBox';
-const String academicSection = 'academicBox';
-const String workSection = 'workBox';
-const String otherSection = 'otherBox';
+const String personalSection = 'Personal';
+const String academicSection = 'Academic';
+const String workSection = 'Work';
+const String otherSection = 'Others';

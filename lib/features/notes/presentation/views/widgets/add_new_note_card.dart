@@ -4,8 +4,8 @@ import 'package:note_taking_app/core/utils/app_text_styles.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/add_note_view.dart';
 
 class AddNewNoteCard extends StatelessWidget {
-  const AddNewNoteCard({super.key});
-
+  const AddNewNoteCard({super.key, required this.boxName});
+  final String boxName;
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -22,7 +22,9 @@ class AddNewNoteCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AddNoteView(),
+                  builder: (context) => AddNoteView(
+                    boxName: boxName,
+                  ),
                 ),
               );
             },

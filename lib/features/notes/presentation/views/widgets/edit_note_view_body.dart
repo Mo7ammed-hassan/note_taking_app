@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/custom_add_note_app_bar.dart';
 import 'package:note_taking_app/features/notes/presentation/views/widgets/note_writing_section.dart';
 
-class AddNoteViewBody extends StatefulWidget {
-  const AddNoteViewBody({
+class EditNoteViewBody extends StatefulWidget {
+  const EditNoteViewBody({
     super.key,
     required this.boxName,
+    required this.index,
   });
   final String boxName;
+  final int index;
   @override
-  State<AddNoteViewBody> createState() => _AddNoteViewBodyState();
+  State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
 }
 
-class _AddNoteViewBodyState extends State<AddNoteViewBody> {
+class _EditNoteViewBodyState extends State<EditNoteViewBody> {
 // Create the controllers here
   final TextEditingController titleController = TextEditingController();
 
@@ -29,10 +31,11 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
     return Column(
       children: [
         CustomAddNoteAppBar(
-          title: 'Add Note',
+          title: 'Edit Note',
           titleController: titleController,
           noteController: noteController,
           boxName: widget.boxName,
+          index: widget.index,
         ),
         Expanded(
           child: NoteWritingSection(

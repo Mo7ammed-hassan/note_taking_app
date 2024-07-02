@@ -1,16 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:note_taking_app/core/models/note_card_model.dart';
 import 'package:note_taking_app/core/utils/app_text_styles.dart';
-import 'package:note_taking_app/core/utils/image_assets.dart';
 import 'package:note_taking_app/core/utils/widgets/custom_container.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/section_card_image.dart';
+import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
-class NoteCardItem extends StatelessWidget {
-  const NoteCardItem({
+class SectionCardItem extends StatefulWidget {
+  const SectionCardItem({
     super.key,
-    required this.titlee,
+    required this.sectionsModel,
   });
 
-  final String titlee;
+  final NoteCardModel sectionsModel;
+
+  @override
+  State<SectionCardItem> createState() => _SectionCardItemState();
+}
+
+class _SectionCardItemState extends State<SectionCardItem> {
+  int noteCount = 0;
+  void updateNoteCount() {
+    setState(() {
+      noteCount = Hive.box<NotesEntity>(widget.sectionsModel.title).length;
+    });
+  }
+
+  @override
+  void initState() {
+    updateNoteCount();
+    // Add listener to update count on changes
+    Hive.box<NotesEntity>(widget.sectionsModel.title).watch().listen((event) {
+      updateNoteCount();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -29,23 +54,20 @@ class NoteCardItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const NoteCardItemImage(
-                  //image: noteModel.image,
-                  image: Assets.imagesAcademic,
+                NoteCardItemImage(
+                  image: widget.sectionsModel.image,
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  titlee,
+                  widget.sectionsModel.title,
                   style: AppTextStyles.textStyle16ExtraBold,
                 ),
                 Text(
-                  //'${noteModel.files} Files',
-                  '200',
+                  '$noteCount Files',
                   style: AppTextStyles.textStyle16SemiBold,
                 ),
                 Text(
-                  // 'Size: ${noteModel.files} GB',
-                  '200',
+                  '${widget.sectionsModel.size}  GB',
                   style: AppTextStyles.textStyle10Medium,
                 ),
               ],

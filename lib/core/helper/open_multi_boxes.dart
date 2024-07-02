@@ -3,11 +3,12 @@ import 'package:note_taking_app/core/utils/constants/boxes.dart';
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
 List<Box<NotesEntity>> boxList = [];
-Future<List<Box<NotesEntity>>> openNotesBoxes() async {
+Future<List<Box<NotesEntity>>> openNotesBoxes([String? boxName]) async {
   var personalBox = await Hive.openBox<NotesEntity>(personalSection);
   var workBox = await Hive.openBox<NotesEntity>(workSection);
   var othersBox = await Hive.openBox<NotesEntity>(otherSection);
   var academicBox = await Hive.openBox<NotesEntity>(academicSection);
+  await Hive.openBox<NotesEntity>(boxName ?? '');
   boxList.add(personalBox);
   boxList.add(workBox);
   boxList.add(othersBox);

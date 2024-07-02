@@ -24,10 +24,9 @@ class NoteRepoImpl extends NotesRepo {
         title: title,
         content: content,
       );
-      //List<NotesEntity> notes = Hive.box<NotesEntity>(boxName).values.toList();
-      //TODO: we are HERRRRRRRRRRRRRRRRRRRRRRR
+
       List<NotesEntity> notes =
-          NoteService(boxName: boxName).getAllNotes(boxName: boxName);
+          NoteService().getAllNotes(boxName: boxName);
       return Right(notes);
     } on Exception catch (e) {
       return Left(Failure(error: 'Failed add note: $e '));

@@ -10,7 +10,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:note_taking_app/core/utils/constants/boxes.dart';
 
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:note_taking_app/features/home/data/models/sections_model.dart';
+import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp.dart';
+import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
+
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
+import 'package:note_taking_app/features/notes/domain/use_cases/notes_use_cases_impl.dart';
+import 'package:note_taking_app/features/notes/presentation/manager/cubit/notes_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +35,8 @@ Future<void> main() async {
   Hive.registerAdapter(NotesEntityAdapter());
 
   // Open the general box
-  await Hive.openBox<String>(sectionsBox);
+  await Hive.openBox<SectionsModel>(sectionsBox);
+  Hive.registerAdapter(SectionsModelAdapter());
 
   // Open the notes boxes
   await openNotesBoxes();
@@ -46,23 +53,37 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'Note Taking',
-      theme: ThemeData(
-        fontFamily: 'Inter',
-        scaffoldBackgroundColor: AppColors.scaffoldColor,
-        //iconTheme: IconThemeData(color: AppColors.primaryColor),
-        iconButtonTheme: IconButtonThemeData(
-          style: ButtonStyle(
-            iconColor: MaterialStatePropertyAll(
-              AppColors.primaryColor,
-            ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomeCubit(
+            gitIt<HomeUseCaseImpl>(),
+          )..fetchSections(),
+        ),
+        BlocProvider(
+          create: (context) => NotesCubit(
+            gitIt<NotesUseCasesImpl>(),
           ),
         ),
-        //useMaterial3: true,
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: 'Note Taking',
+        theme: ThemeData(
+          fontFamily: 'Inter',
+          scaffoldBackgroundColor: AppColors.scaffoldColor,
+          //iconTheme: IconThemeData(color: AppColors.primaryColor),
+          iconButtonTheme: IconButtonThemeData(
+            style: ButtonStyle(
+              iconColor: MaterialStatePropertyAll(
+                AppColors.primaryColor,
+              ),
+            ),
+          ),
+          //useMaterial3: true,
+        ),
+        routerConfig: router,
       ),
-      routerConfig: router,
     );
   }
 }

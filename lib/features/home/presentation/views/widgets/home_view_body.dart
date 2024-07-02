@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:note_taking_app/features/home/presentation/views/widgets/build_sections_card_grid_view.dart';
-
 import 'package:note_taking_app/features/home/presentation/views/widgets/custom_home_app_bar.dart';
+import 'package:note_taking_app/features/home/presentation/views/widgets/section_card_grid_view.dart';
 import 'package:note_taking_app/features/home/presentation/views/widgets/show_spacing_card.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -22,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(child: ShowSpacingCard()),
           SliverToBoxAdapter(child: SizedBox(height: 50)),
           // card section--
-          BuildSectionsCardGridView(),
+          SectionsCardGridView(),
         ],
       ),
     );

@@ -8,7 +8,7 @@ const List<NoteSectionsModel> noteSectionsList = [
   ),
   NoteSectionsModel(
     boxName: academicSection,
-    route: '/notes',
+    route: '/academicNotes',
   ),
   NoteSectionsModel(
     boxName: workSection,
@@ -16,6 +16,6 @@ const List<NoteSectionsModel> noteSectionsList = [
   ),
   NoteSectionsModel(
     boxName: otherSection,
-    route: '/notes',
+    route: '/othersNotes',
   ),
 ];

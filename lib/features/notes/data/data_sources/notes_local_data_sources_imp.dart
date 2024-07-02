@@ -13,9 +13,10 @@ class NotesLocalDataSourcesImp extends NotesLocalDataSources {
     required String title,
     required String content,
   }) async {
-    NoteService noteService = NoteService(boxName: boxName);
+    NoteService noteService = NoteService();
     try {
-      await noteService.addNewNote(title: title, content: content);
+      await noteService.addNewNote(
+          title: title, content: content, boxName: boxName);
       print('success add new note');
     } on Exception catch (e) {
       print('Error adding : $e');
@@ -25,8 +26,8 @@ class NotesLocalDataSourcesImp extends NotesLocalDataSources {
   @override
   Future<void> deleteNote({required int index, required String boxName}) async {
     try {
-      NoteService noteService = NoteService(boxName: boxName);
-      await noteService.deleteNote(index: index);
+      NoteService noteService = NoteService();
+      await noteService.deleteNote(index: index, boxName: boxName);
       print('deleting note');
     } on Exception catch (e) {
       print('Error deleting : $e');
@@ -41,8 +42,9 @@ class NotesLocalDataSourcesImp extends NotesLocalDataSources {
     required String content,
   }) async {
     try {
-      NoteService noteService = NoteService(boxName: boxName);
-      await noteService.editNote(index: index, title: title, content: content);
+      NoteService noteService = NoteService();
+      await noteService.editNote(
+          index: index, title: title, content: content, boxName: boxName);
       print('editing note');
     } on Exception catch (e) {
       print('Error editing : $e');

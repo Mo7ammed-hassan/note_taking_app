@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_taking_app/features/home/data/models/sections_model.dart';
 import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp.dart';
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 
@@ -8,14 +11,16 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeUseCaseImpl) : super(HomeInitial());
 
   final HomeUseCaseImpl homeUseCaseImpl;
-  List<String> sectionsList = [];
+  List<SectionsModel> sectionsList = [];
   List<NotesEntity> notesList = [];
 
   // --ADD NEW SECTION--
-  Future<void> addNewSection({required String title}) async {
+  Future<void> addNewSection(
+      {required String boxName, required Uint8List image}) async {
     emit(HomeLoading());
     // trigger add new section method
-    var sections = await homeUseCaseImpl.callAddNewSection(title: title);
+    var sections =
+        await homeUseCaseImpl.callAddNewSection(image: image, boxName: boxName);
     sections.fold(
       (failure) {
         emit(HomeFailure(error: failure.error));
@@ -45,7 +50,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   // --FETCH SECTIONS--
   void fetchSections() {
-    emit(HomeLoading());
     // trigger fetch sections method
     var sections = homeUseCaseImpl.callFetchSections();
     sections.fold(
@@ -61,7 +65,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   // --FETCH NOTES--
   void fetchNotes({required String boxNote}) {
-    emit(HomeLoading());
     // trigger fetch notes method
     var notes = homeUseCaseImpl.callFetchNotes(boxNote: boxNote);
     notes.fold(

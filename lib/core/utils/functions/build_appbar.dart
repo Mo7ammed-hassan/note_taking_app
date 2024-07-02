@@ -11,8 +11,8 @@ AppBar buildAppBar(BuildContext context,{required String title}) {
       
       leading: IconButton(
           style: ButtonStyle(
-            iconSize: const MaterialStatePropertyAll(17),
-            iconColor: MaterialStatePropertyAll(
+            iconSize: const WidgetStatePropertyAll(17),
+            iconColor: WidgetStatePropertyAll(
               AppColors.noteBodyColor,
             ),
           ),

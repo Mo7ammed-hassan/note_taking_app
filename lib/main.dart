@@ -8,12 +8,10 @@ import 'package:note_taking_app/core/helper/services_locator.dart';
 import 'package:note_taking_app/core/utils/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:note_taking_app/core/utils/constants/boxes.dart';
-
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:note_taking_app/features/home/data/models/sections_model.dart';
 import 'package:note_taking_app/features/home/domain/use_cases/home_use_case_imp.dart';
 import 'package:note_taking_app/features/home/presentation/manager/cubit/home_cubit.dart';
-
 import 'package:note_taking_app/features/notes/domain/entites/notes_entity.dart';
 import 'package:note_taking_app/features/notes/domain/use_cases/notes_use_cases_impl.dart';
 import 'package:note_taking_app/features/notes/presentation/manager/cubit/notes_cubit.dart';
@@ -75,7 +73,7 @@ class MyApp extends StatelessWidget {
           //iconTheme: IconThemeData(color: AppColors.primaryColor),
           iconButtonTheme: IconButtonThemeData(
             style: ButtonStyle(
-              iconColor: MaterialStatePropertyAll(
+              iconColor: WidgetStatePropertyAll(
                 AppColors.primaryColor,
               ),
             ),
